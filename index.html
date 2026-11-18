@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FOPTNET — საქართველოს ოპტიკური მაგისტრალი</title>
+<meta name="description" content="ფოპტნეტი — საქართველოს ოპტიკური მაგისტრალი 1996 წლიდან. საქალაქთაშორისო და საერთაშორისო (Cross-Border) DWDM ქსელი, ბნელი ბოჭკო, IP ტრანზიტი. SLA 99.89%, RTD 5–7 ms.">
+<link rel="canonical" href="https://www.foptnet.ge/">
+<meta name="theme-color" content="#0B2A6F">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FOPTNET">
+<meta property="og:title" content="FOPTNET — საქართველოს ოპტიკური მაგისტრალი">
+<meta property="og:description" content="ფოპტნეტი — საქართველოს ოპტიკური მაგისტრალი 1996 წლიდან. საქალაქთაშორისო და საერთაშორისო (Cross-Border) DWDM ქსელი, ბნელი ბოჭკო, IP ტრანზიტი. SLA 99.89%, RTD 5–7 ms.">
+<meta property="og:url" content="https://www.foptnet.ge/">
+<meta property="og:image" content="https://www.foptnet.ge/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ka_GE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.foptnet.ge/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>
+/* ===== FOPTNET — საიტის პარამეტრები (IT: მხოლოდ ეს ბლოკი შეცვალეთ) =====
+   formEndpoint : URL, სადაც ფორმები JSON POST-ით გაიგზავნება (მაგ. 'send.php'). ცარიელი = დემო რეჟიმი, არაფერი იგზავნება.
+   ga           : Google Analytics 4 ID (მაგ. 'G-XXXXXXX'). ცარიელი = გამორთული.
+   demo         : true = ფუტერში ჩანს „დემო ვერსია“; false = დამალულია. */
+window.FOPTNET_CONFIG = { formEndpoint: '', ga: '', demo: true };
+</script>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap">
+<style>
+
+
+/* Layout: light glass over brand strands and soft cyan light; one floating glass tab bar; six hash-routed pages on a 1200px rail */
+:root{
+  color-scheme:light;
+  --blue:#0B2A6F; --ink:#071A45; --cyan:#00D4FF; --gray:#8A94A6; --light:#E9EDF5; --white:#FFFFFF;
+  --orange:#FF7A00; --orange-h:#E66A00;
+  --muted:#43527A; --line:rgba(11,42,111,.14);
+  --glass:rgba(255,255,255,.58); --glass-edge:rgba(255,255,255,.9);
+  --glass-dark:rgba(255,255,255,.08); --glass-dark-edge:rgba(255,255,255,.22);
+  --shadow:0 18px 50px rgba(7,26,69,.14);
+  --font:"Montserrat","Noto Sans Georgian",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-sm:4px; --r-md:6px; --r-lg:18px; --r-pill:999px;
+  --rail:1200px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--light);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--light)}
+main{overflow-x:clip;min-height:70vh}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance;color:var(--blue);font-weight:700;line-height:1.2;overflow-wrap:anywhere}
+a{color:var(--blue)}
+button,input,select,textarea{font-family:var(--font)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:var(--r-sm)}
+.wrap{max-width:var(--rail);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.sec{padding-block:72px;position:relative}
+.sec.tight{padding-top:8px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--blue)}
+.eyebrow::before{content:"";width:26px;height:4px;background:var(--cyan);flex:none}
+.h2{font-size:clamp(26px,3.4vw,40px);margin-top:14px}
+.lead{font-size:17px;color:var(--muted);max-width:64ch;margin-top:16px}
+.glass{background:var(--glass);border:1px solid var(--glass-edge);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.9);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;font:700 14px/20px var(--font);letter-spacing:.02em;padding:13px 22px;border-radius:var(--r-sm);text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s;text-align:center}
+.btn-primary{background:var(--orange);color:var(--ink);box-shadow:0 10px 24px rgba(255,122,0,.28)}
+.btn-primary:hover{background:var(--orange-h);transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.5);color:var(--blue);box-shadow:inset 0 0 0 1.5px var(--blue);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn-ghost:hover{background:var(--white)}
+.btn[aria-disabled="true"]{background:rgba(255,255,255,.5);color:var(--muted);box-shadow:inset 0 0 0 1.5px var(--gray);cursor:default}
+.chip{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);background:rgba(255,255,255,.7);border:1px solid var(--line);padding:4px 11px;border-radius:var(--r-pill)}
+.todo{padding:14px 16px;border-radius:14px;border:1px dashed var(--blue);font-size:13.5px;color:var(--muted);background:rgba(255,255,255,.5)}
+.field{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.glow{position:absolute;border-radius:50%;filter:blur(70px)}
+.sec > .wrap,.hero > .wrap,.phead > .wrap{position:relative;z-index:1}
+
+/* ---------- glass navigation ---------- */
+.nav{position:fixed;z-index:50;top:calc(env(safe-area-inset-top,0px) + 12px);left:0;right:0;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));pointer-events:none}
+.nav-bar{pointer-events:auto;max-width:var(--rail);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px 8px 16px;border-radius:var(--r-pill);background:rgba(255,255,255,.52);border:1px solid var(--glass-edge);box-shadow:0 14px 40px rgba(7,26,69,.14),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(11,42,111,.06);-webkit-backdrop-filter:blur(26px) saturate(190%);backdrop-filter:blur(26px) saturate(190%);transition:background .3s,box-shadow .3s}
+.nav.scrolled .nav-bar{background:rgba(255,255,255,.76);box-shadow:0 18px 46px rgba(7,26,69,.18),inset 0 1px 0 #fff}
+.logo{display:block;height:34px;width:auto}
+.logo-link{display:flex;align-items:center;border-radius:var(--r-sm);flex:none}
+.tabs{position:relative;display:flex;align-items:center;gap:2px;padding:4px;border-radius:var(--r-pill);background:rgba(11,42,111,.06);box-shadow:inset 0 1px 2px rgba(7,26,69,.08)}
+.tab-ind{position:absolute;top:4px;left:0;height:calc(100% - 8px);width:0;border-radius:var(--r-pill);background:linear-gradient(180deg,#fff,rgba(255,255,255,.82));box-shadow:0 4px 14px rgba(7,26,69,.14),inset 0 1px 0 #fff;transition:transform .38s cubic-bezier(.3,1.2,.4,1),width .38s cubic-bezier(.3,1.2,.4,1),opacity .2s;opacity:0}
+.tab-ind::after{content:"";position:absolute;left:50%;bottom:5px;width:14px;height:2px;margin-left:-7px;background:var(--cyan);border-radius:2px}
+.tab{position:relative;z-index:1;font:600 13.5px/20px var(--font);color:var(--blue);text-decoration:none;padding:9px 15px;border-radius:var(--r-pill);white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang{display:flex;padding:3px;gap:1px;border-radius:var(--r-pill);background:rgba(11,42,111,.07)}
+.lang button{font:700 12px/18px var(--font);color:var(--blue);background:none;border:0;min-width:38px;min-height:34px;padding:6px 8px;border-radius:var(--r-pill);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.nav-cta{padding:11px 18px;border-radius:var(--r-pill);min-height:44px;white-space:nowrap}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.7);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;flex:none}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--blue)}
+.sheet{pointer-events:auto;max-width:var(--rail);margin:10px auto 0;padding:10px;border-radius:var(--r-lg);background:rgba(255,255,255,.86);border:1px solid var(--glass-edge);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(26px) saturate(190%);backdrop-filter:blur(26px) saturate(190%);display:grid;gap:2px;max-height:calc(100vh - 110px);overflow:auto}
+.sheet[hidden]{display:none}
+.sheet a{font:600 16px/24px var(--font);color:var(--blue);text-decoration:none;padding:12px 14px;border-radius:12px}
+.sheet a[aria-current="page"]{background:rgba(11,42,111,.07)}
+.sheet .lang{margin:8px 6px 4px;align-self:start;justify-self:start}
+.sheet .lang button{min-width:52px;min-height:40px;font-size:13px}
+
+/* ---------- hero / page head ---------- */
+.hero{position:relative;padding-top:calc(env(safe-area-inset-top,0px) + 146px);padding-bottom:72px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+.crumb{font-size:13px;color:var(--muted);font-weight:600}
+.hero h1{font-size:clamp(32px,4.8vw,58px);line-height:1.12;margin-top:18px;letter-spacing:-.01em}
+.hero .lead{font-size:18px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-art{position:relative;min-height:430px}
+.hero-art .strands{position:absolute;right:-120px;top:10px;width:120%;height:auto}
+.float{position:absolute;padding:18px 20px}
+.float .k{font-size:12px;font-weight:700;color:var(--muted)}
+.float .v{font-size:18px;font-weight:700;color:var(--blue);line-height:1.3;margin-top:6px}
+.f1{left:0;top:52px;width:min(300px,80%)}
+.f2{right:4%;bottom:22px;width:min(340px,88%)}
+.route{display:flex;align-items:center;margin-top:14px}
+.route i{width:11px;height:11px;border-radius:50%;background:var(--blue);flex:none;box-shadow:0 0 0 4px rgba(255,255,255,.9)}
+.route i.c{background:var(--cyan)}
+.route u{flex:1;height:2px;background:var(--blue)}
+.route-l{display:flex;justify-content:space-between;gap:6px;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:8px}
+.phead{position:relative;padding-top:calc(env(safe-area-inset-top,0px) + 140px);padding-bottom:36px}
+.phead h1{font-size:clamp(30px,4.2vw,50px);margin-top:16px;letter-spacing:-.01em}
+
+/* ---------- facts band ---------- */
+.band{background:var(--ink);color:#fff;overflow:hidden}
+.band .eyebrow,.band .h2{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.stat{padding:24px 20px;border-radius:var(--r-lg);background:var(--glass-dark);border:1px solid var(--glass-dark-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.18);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.stat .n{font-size:clamp(32px,4vw,50px);font-weight:700;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.stat .bar{width:34px;height:4px;background:var(--cyan);margin:16px 0 12px}
+.stat p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.88)}
+
+/* ---------- cards ---------- */
+.head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin-top:36px}
+.card{padding:24px 22px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s}
+a.card:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(7,26,69,.18),inset 0 1px 0 #fff}
+.card svg{width:44px;height:44px;flex:none}
+.card h3{font-size:17.5px}
+.card p{font-size:14px;line-height:1.65;color:var(--muted)}
+.more{margin-top:auto;font-size:13.5px;font-weight:700;color:var(--blue);display:inline-flex;gap:8px;align-items:center}
+.more::after{content:"";width:16px;height:2px;background:var(--cyan);transition:width .2s}
+a.card:hover .more::after{width:28px}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px}
+.quick a{padding:28px;text-decoration:none;display:flex;flex-direction:column;gap:10px}
+.quick h3{font-size:22px}
+.quick p{color:var(--muted);font-size:15px}
+.quick .dark{background:var(--blue);border-color:rgba(255,255,255,.3)}
+.quick .dark h3{color:#fff}.quick .dark p{color:rgba(255,255,255,.9)}.quick .dark .more{color:#fff}
+
+/* ---------- services page ---------- */
+.svc{display:grid;gap:18px;margin-top:8px}
+.svc-item{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,1fr);gap:24px;padding:28px;align-items:start}
+.svc-item > svg{width:56px;height:56px}
+.svc-item h3{font-size:22px}
+.svc-item .en{font-size:12.5px;font-weight:600;color:var(--muted);margin-top:4px}
+.svc-item p{color:var(--muted);margin-top:10px;font-size:15px}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ticks li{display:flex;gap:10px;font-size:14.5px;font-weight:600;color:var(--blue);line-height:1.5}
+.ticks li::before{content:"";width:8px;height:8px;background:var(--cyan);margin-top:7px;flex:none}
+.svc-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+
+/* ---------- network map ---------- */
+.map-card{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);overflow:hidden}
+.map-side{padding:24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:16px;min-width:0}
+.seg{display:flex;padding:4px;gap:2px;border-radius:var(--r-pill);background:rgba(11,42,111,.07)}
+.seg button{flex:1;font:600 12.5px/18px var(--font);color:var(--blue);background:none;border:0;min-height:40px;padding:8px 6px;border-radius:var(--r-pill);cursor:pointer}
+.seg button[aria-pressed="true"]{background:#fff;box-shadow:0 3px 10px rgba(7,26,69,.14)}
+.pops{display:grid;gap:6px}
+.pop{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:600 14.5px/20px var(--font);color:var(--blue);background:rgba(255,255,255,.5);border:1px solid transparent;border-radius:12px;min-height:44px;padding:10px 12px;cursor:pointer;transition:background .2s,border-color .2s,opacity .2s}
+.pop::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue);flex:none}
+.pop[data-kind="sea"]::before{background:var(--cyan);box-shadow:0 0 0 2px var(--blue)}
+.pop[data-kind="gate"]::before{border-radius:0;transform:rotate(45deg);background:var(--orange)}
+.pop:hover{background:#fff}
+.pop[aria-pressed="true"]{background:#fff;border-color:var(--blue)}
+.pop.dim{opacity:.4}
+.eq{margin-top:auto;padding:16px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;gap:12px}
+.eq-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.eq-h h3{font-size:16px}
+.eq-clear{font:700 12.5px/18px var(--font);color:var(--blue);background:none;border:0;min-height:36px;padding:6px 4px;cursor:pointer;white-space:nowrap;flex:none}
+.eq-hint{font-size:13px;font-weight:600;color:var(--blue);background:rgba(0,212,255,.16);border-radius:10px;padding:9px 12px}
+.ep{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:var(--light)}
+.ep .bdg{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ep.empty .bdg{background:none;color:var(--muted);box-shadow:inset 0 0 0 1.5px var(--gray)}
+.ep .k{font-size:11.5px;font-weight:700;color:var(--muted)}
+.ep b{display:block;font-size:15px;color:var(--blue);line-height:1.3}
+.ep.empty b{color:var(--muted);font-weight:600}
+.eq label{font-size:12.5px;font-weight:700;color:var(--blue)}
+.eq select{width:100%;font:500 16px/22px var(--font);color:var(--ink);min-height:44px;padding:9px 12px;border-radius:var(--r-sm);border:1px solid var(--line);background:#fff;margin-top:6px}
+.bw-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.bw-top output{font-size:18px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.eq input[type=range]{width:100%;accent-color:var(--blue);min-height:32px;margin:0}
+.bw-l{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--muted)}
+.eq .btn{width:100%}
+.btn:disabled{background:var(--light);color:var(--muted);box-shadow:none;cursor:not-allowed;transform:none}
+.link{fill:none;stroke:var(--ink);stroke-width:4.5;stroke-linecap:round}
+.link-glow{fill:none;stroke:var(--orange);stroke-width:11;stroke-linecap:round;opacity:.35}
+.mtag circle{fill:var(--ink)}
+.mtag text{font:700 13px var(--font);fill:#fff}
+/* ---------- enquiry modal ---------- */
+.modal{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 16px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 16px) max(16px,env(safe-area-inset-left,0px));background:rgba(7,26,69,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.modal[hidden]{display:none}
+.modal-box{position:relative;width:min(920px,100%);max-height:100%;overflow:auto;border-radius:var(--r-lg);background:rgba(255,255,255,.94);border:1px solid var(--glass-edge);box-shadow:0 30px 80px rgba(7,26,69,.35);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.modal-form{padding:30px;display:grid;gap:14px;align-content:start}
+.modal-form h2{font-size:26px}
+.modal-sum{padding:30px;background:var(--light);display:grid;gap:14px;align-content:center;border-left:4px solid var(--cyan)}
+.modal-sum h3{font-size:13px;color:var(--muted)}
+.sum-row{padding:14px 16px;border-radius:12px;background:#fff}
+.sum-row .k{font-size:11.5px;font-weight:700;color:var(--muted)}
+.sum-row b{display:block;font-size:16px;color:var(--blue)}
+.sum-row.split{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.modal-x{position:absolute;right:10px;top:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(11,42,111,.08);color:var(--blue);font-size:22px;line-height:1;cursor:pointer;z-index:1}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;font-weight:600;color:var(--ink)}
+.agree input{width:20px;height:20px;accent-color:var(--blue);flex:none;margin-top:2px}
+.reqnote{font-size:12.5px;color:var(--muted)}
+.detail{margin-top:auto;padding:16px;border-radius:14px;background:var(--ink);color:#fff}
+.detail .k{font-size:11.5px;font-weight:700;color:var(--cyan)}
+.detail h3{color:#fff;font-size:19px;margin-top:6px}
+.detail p{font-size:13.5px;line-height:1.65;margin-top:8px;color:rgba(255,255,255,.88)}
+.map-stage{position:relative;min-width:0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.2))}
+.map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.map-scroll svg{display:block;width:100%;height:auto;min-width:560px}
+.map-note{font-size:12.5px;color:var(--muted);padding:10px 20px 16px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;padding:14px 20px 0;font-size:12.5px;font-weight:600;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:22px;height:4px;background:var(--blue);display:inline-block}
+.legend i.s{background:var(--cyan);box-shadow:0 0 0 2px var(--blue)}
+.legend i.g{width:9px;height:9px;background:var(--orange);transform:rotate(45deg)}
+.m-label{font:700 17px var(--font);fill:var(--blue)}
+.m-sub{font:600 13px var(--font);fill:var(--muted)}
+.m-sea{font:600 14px var(--font);fill:#2B6F94;letter-spacing:.18em}
+.node{cursor:pointer;transition:opacity .25s}
+.node .ring{fill:#fff;stroke:var(--blue);stroke-width:3}
+.node .dot{fill:var(--blue)}
+.node[data-kind="sea"] .dot{fill:var(--cyan)}
+.node[data-kind="gate"] .dot{fill:var(--orange)}
+.node .halo{fill:var(--cyan);opacity:0;transition:opacity .2s}
+.node.on .halo,.node:focus-visible .halo{opacity:.3}
+.node:focus-visible{outline:none}
+.node.on .ring{stroke-width:4.5}
+.cable{fill:none;stroke-linecap:round;transition:opacity .25s}
+.cable.land{stroke:var(--blue);stroke-width:5}
+.cable.sea{stroke:var(--cyan);stroke-width:5}
+.cable.sea-under{stroke:var(--blue);stroke-width:9}
+.dimmed{opacity:.16}
+.two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px;margin-top:36px;align-items:start}
+.panel{padding:26px}
+.panel h3{font-size:20px}
+.spec{width:100%;border-collapse:collapse;margin-top:14px}
+.spec th,.spec td{text-align:left;padding:12px 0;border-top:1px solid var(--line);font-size:14.5px;vertical-align:top}
+.spec th{font-weight:700;color:var(--blue);width:44%;padding-right:12px}
+.spec td{color:var(--muted)}
+.dl{display:grid;gap:12px;margin-top:14px}
+.dl p{font-size:14px;color:var(--muted)}
+
+/* ---------- industries ---------- */
+.ind{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
+.ind-item{padding:28px;display:flex;flex-direction:column;gap:14px}
+.ind-item h3{font-size:21px}
+.ind-item dl{margin:0;display:grid;gap:12px}
+.ind-item dt{font-size:12px;font-weight:700;color:var(--muted)}
+.ind-item dd{margin:2px 0 0;font-size:15px;color:var(--ink)}
+.ind-num{font-size:13px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:10px}
+.ind-num::before{content:"";width:26px;height:4px;background:var(--cyan)}
+
+/* ---------- about ---------- */
+.tl{display:grid;gap:0;margin-top:30px}
+.tl-item{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding:20px 0;border-top:1px solid var(--blue)}
+.tl-item .y{font-size:22px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.tl-item h3{font-size:18px}
+.tl-item p{color:var(--muted);font-size:15px;margin-top:6px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.co{padding:26px 24px}
+.co .k{font-size:12px;font-weight:700;color:var(--muted)}
+.co h3{font-size:20px;margin-top:8px}
+.co p{font-size:14px;color:var(--muted);margin-top:8px}
+.co a{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:700}
+.co.me{background:var(--blue);border-color:rgba(255,255,255,.3)}
+.co.me h3,.co.me .k{color:#fff}
+.co.me p{color:rgba(255,255,255,.9)}
+
+/* ---------- contact / RFQ ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start;margin-top:8px}
+.info{display:grid;gap:14px}
+.info .glass{padding:20px 22px}
+.info h3{font-size:17px}
+.info p{font-size:14px;color:var(--muted);margin-top:6px}
+.form{padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form h3{grid-column:1/-1;font-size:20px}
+.fld{display:grid;gap:6px;min-width:0}
+.fld.full{grid-column:1/-1}
+.fld label,.fld legend{font-size:12.5px;font-weight:700;color:var(--blue);padding:0}
+.fld input:not([type=checkbox]),.fld textarea,.fld select{width:100%;font:500 16px/22px var(--font);color:var(--ink);min-height:46px;padding:11px 13px;border-radius:var(--r-sm);border:1px solid var(--line);background:rgba(255,255,255,.88)}
+.fld textarea{min-height:104px;resize:vertical}
+fieldset.fld{border:0;margin:0;padding:0}
+.checks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:4px}
+.checks label{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);min-height:36px}
+.checks input{width:18px;height:18px;accent-color:var(--blue)}
+.send{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.msg{font-size:13.5px;font-weight:600;color:var(--blue)}
+
+/* ---------- footer ---------- */
+footer{background:var(--white);border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-block:48px 26px}
+.foot h4{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--blue)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.foot li a{display:inline-block;padding:4px 0;font-size:14px;color:var(--muted);text-decoration:none}
+.foot li a:hover{color:var(--blue);text-decoration:underline}
+.foot .lang{display:inline-flex}
+.foot p{font-size:14px;color:var(--muted);margin-top:14px;max-width:36ch}
+.legal{border-top:1px solid var(--line);padding-block:16px;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.07s}.rise.d2{animation-delay:.14s}.rise.d3{animation-delay:.22s}
+@keyframes rise{from{transform:translateY(16px);opacity:.01}to{transform:none;opacity:1}}
+
+@media (max-width:1120px){
+  .tabs,.nav-cta{display:none}
+  .menu-btn{display:flex}
+}
+@media (max-width:900px){
+  .modal-box{grid-template-columns:minmax(0,1fr)}
+  .modal-sum{border-left:0;border-top:4px solid var(--cyan);order:-1;padding:20px 20px 16px}
+  .modal-form{padding:20px}
+  .hero-grid,.map-card,.two,.contact{grid-template-columns:minmax(0,1fr)}
+  .map-side{border-right:0;border-bottom:1px solid var(--line)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .svc-item{grid-template-columns:56px minmax(0,1fr)}
+  .svc-item .side{grid-column:1/-1}
+  .hero-art{min-height:370px}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  body{font-size:15.5px}
+  .sec{padding-block:52px}
+  .hero{padding-top:calc(env(safe-area-inset-top,0px) + 112px);padding-bottom:48px}
+  .phead{padding-top:calc(env(safe-area-inset-top,0px) + 108px);padding-bottom:24px}
+  .hero .lead,.lead{font-size:16px}
+  .stats,.quick,.ind,.form{grid-template-columns:minmax(0,1fr)}
+  .cta-row .btn,.svc-act .btn,.send .btn{flex:1 1 100%}
+  .svc-item,.ind-item,.panel,.form{padding:20px}
+  .svc-item{grid-template-columns:minmax(0,1fr)}
+  .tl-item{grid-template-columns:minmax(0,1fr);gap:4px}
+  .foot{grid-template-columns:1fr}
+  .hero-art{min-height:330px}
+  .hero-art .strands{right:-50px;width:125%}
+  .f1{top:20px}
+  .logo{height:30px}
+  .nav-bar{padding-left:14px}
+}
+@media (max-width:380px){
+  .nav-bar > .nav-right > .lang{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .rise{animation:none}
+  .pulse{display:none}
+  *{transition:none!important}
+}
+
+
+/* ===== one-page layout (first demo) ===== */
+section[id]{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 84px)}
+.sec{padding-block:80px}
+.about2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:36px}
+.about2 .glass{padding:28px}
+.about2 h3{font-size:21px}
+.about2 p{color:var(--muted);margin-top:12px;font-size:15.5px}
+.card .ticks{margin-top:2px}
+.card .ticks li{font-size:13px}
+.rows{display:grid;gap:64px;margin-top:48px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.row.flip .row-art{order:2}
+.row h3{font-size:clamp(22px,2.6vw,30px);margin-top:12px}
+.row p{color:var(--muted);margin-top:14px;max-width:56ch}
+.row .y{font-size:13px;font-weight:700;color:var(--muted);margin-top:14px}
+.row-art{position:relative;min-height:300px;border-radius:var(--r-lg);overflow:hidden;background:var(--white);border:1px solid var(--glass-edge);box-shadow:var(--shadow)}
+.row-art svg{position:absolute;inset:0;width:100%;height:100%}
+.row-art .tag{position:absolute;left:18px;bottom:18px;padding:12px 16px;border-radius:14px;font-size:13px;font-weight:700;color:var(--blue)}
+.info3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.info3 .glass{padding:20px 22px}
+.info3 h3{font-size:17px}
+.info3 p{font-size:14px;color:var(--muted);margin-top:6px}
+.form-wide{margin-top:20px}
+
+/* ===== 3D logo ===== */
+.logo-link{gap:10px;text-decoration:none}
+.l3d{display:block;width:36px;height:36px;perspective:260px;flex:none}
+.l3d-in{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:l3d 7s ease-in-out infinite;will-change:transform}
+.logo-link:hover .l3d-in{animation-duration:2.4s}
+.l3d-in > *{position:absolute;inset:0;width:100%;height:100%;display:block}
+.l3d-base{border-radius:4px;background:var(--light);box-shadow:inset 0 0 0 1px rgba(11,42,111,.10)}
+.l3d-side{border-radius:4px;background:#B9C3D6}
+.l3d-shadow{border-radius:6px;background:rgba(7,26,69,.28);filter:blur(5px);transform:translateZ(-14px) translateY(5px) scale(.9)}
+@keyframes l3d{0%,100%{transform:rotateY(-26deg) rotateX(10deg)}50%{transform:rotateY(26deg) rotateX(-8deg)}}
+.wm{display:block;height:13px;width:auto}
+
+/* ===== map ===== */
+.map-card{margin-top:36px;grid-template-columns:minmax(0,1fr)}
+.map-card .map-stage{order:1}
+.map-card .map-side{order:2;border-right:0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:20px;align-items:start}
+.map-side .eq{margin-top:0;grid-template-columns:repeat(2,minmax(0,1fr));align-items:end}
+.map-side .eq > .eq-h,.map-side .eq > .eq-hint,.map-side .eq > .btn,.map-side .eq > .reqnote{grid-column:1/-1}
+.map-side .eq > .btn{justify-self:start;width:auto;min-width:260px}
+.map-stage{background:#F4F7FB;overflow:hidden}
+.map-scroll svg{min-width:640px;touch-action:pan-y}
+.map-scroll.zoomed svg{cursor:grab;touch-action:none}
+.map-tools{position:absolute;left:12px;right:12px;top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;z-index:2;pointer-events:none}
+.map-tools > *{pointer-events:auto}
+.tool{background:rgba(255,255,255,.72);border:1px solid var(--glass-edge);box-shadow:0 8px 24px rgba(7,26,69,.14),inset 0 1px 0 #fff;-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%)}
+.map-tools .seg{flex:0 1 auto;min-width:0}
+.map-tools .seg button{padding:8px 14px;white-space:nowrap}
+.search{display:flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:0 14px;flex:1 1 200px;max-width:320px;min-height:48px}
+.search svg{width:18px;height:18px;flex:none}
+.search input{flex:1;min-width:0;border:0;background:none;font:500 16px/22px var(--font);color:var(--ink);padding:10px 0;outline:none}
+.search:focus-within{outline:2px solid var(--blue);outline-offset:1px}
+.zoom{position:absolute;right:12px;bottom:14px;display:grid;gap:8px;z-index:2}
+.zoom button{width:44px;height:44px;border-radius:50%;font:700 20px/1 var(--font);color:var(--blue);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.zoom button:disabled{opacity:.45;cursor:default}
+.legend{position:absolute;left:12px;bottom:14px;z-index:2;padding:10px 14px;border-radius:14px;gap:6px 16px;max-width:calc(100% - 80px)}
+.map-note{padding:12px 20px 16px}
+.g-land{fill:#DCE2ED}
+.g-sea{fill:#F4F7FB}
+.g-geo{fill:#C5D0E4;stroke:#fff;stroke-width:2;stroke-linejoin:round}
+.g-cn{font:700 12px var(--font);font-size:calc(12px / var(--k,1));fill:#7A86A0;letter-spacing:.16em}
+.g-cn.me{fill:var(--blue);font-size:calc(13px / var(--k,1))}
+.g-seal{font:600 13px var(--font);fill:#5E8FB0;letter-spacing:.2em}
+.rt{fill:none;stroke-linecap:round;stroke-linejoin:round;transition:opacity .25s}
+.rt.land{stroke:var(--blue);stroke-width:2.6}
+.rt.sea{stroke:var(--cyan);stroke-width:2.6}
+.rt.sea-c{stroke:var(--blue);stroke-width:5.2}
+.mk{cursor:pointer;transition:opacity .25s;outline:none}
+.mk .glowc,.mk .rip{pointer-events:none}
+.mk .glowc{opacity:.55;transform-box:fill-box;transform-origin:center;animation:breathe 3.2s ease-in-out infinite}
+.mk .disc{fill:var(--ink);stroke:#fff;stroke-width:2}
+.mk .in{fill:#fff}
+.mk[data-kind="gate"] .in{fill:var(--orange)}
+.mk[data-kind="sea"] .in{fill:var(--cyan)}
+.mk.on .disc{stroke:var(--orange);stroke-width:3}
+.mk:focus-visible{outline:none}
+.mk:focus-visible .disc{stroke:var(--orange);stroke-width:3}
+.mk text{font:700 14px var(--font);font-size:calc(14px / var(--k,1));fill:var(--ink);paint-order:stroke;stroke:#F4F7FB;stroke-width:calc(4px / var(--k,1));stroke-linejoin:round}
+.pop[hidden]{display:none}
+.nores{font-size:13px;font-weight:600;color:var(--muted);padding:6px 4px}
+@keyframes breathe{0%,100%{transform:scale(.8)}50%{transform:scale(1.15)}}
+
+/* ===== presentation data + motion ===== */
+.pop{transition:background .25s,border-color .25s,opacity .25s,transform .15s}
+.pop:active{transform:scale(.985)}
+.pop[data-kind="city"]::before{width:8px;height:8px;margin:0 1px;background:#fff;box-shadow:0 0 0 2.5px var(--ink)}
+.pcap{margin-left:auto;font-size:12px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:8px}
+.seg button{transition:background .25s,box-shadow .25s}
+.legend i.c{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 2.5px var(--ink)}
+.legend i.b{background:repeating-linear-gradient(90deg,var(--blue) 0 4px,transparent 4px 8px);opacity:.75}
+.ep{align-items:start;transition:background .35s,box-shadow .35s}
+.ep .bdg{margin-top:2px;transition:background .35s,color .35s,box-shadow .35s}
+.ep-main{min-width:0}
+.ep-data{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
+.ep.has .ep-data{grid-template-rows:1fr}
+.ep-data-in{overflow:hidden;min-height:0}
+.ep-type{font-size:12px;font-weight:600;color:var(--muted);padding-top:4px}
+.ep-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;line-height:1.45;padding-top:6px;margin-top:6px;border-top:1px solid var(--line)}
+.ep-row span{color:var(--muted);font-weight:600}
+.ep-row b{display:inline;font-size:13px;color:var(--blue);text-align:right;font-variant-numeric:tabular-nums}
+.ep-row b.off{color:var(--muted)}
+.eq-clear{opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.eq-clear.show{opacity:1;visibility:visible}
+.eq-net{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),opacity .35s}
+.eq-net.open{grid-template-rows:1fr;opacity:1}
+.eq-net-in{overflow:hidden;min-height:0;display:flex;flex-wrap:wrap;gap:8px}
+.eq-net-in span{display:inline-flex;align-items:baseline;gap:6px;padding:7px 12px;border-radius:var(--r-pill);background:var(--light);font-size:13px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.eq-net-in em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted)}
+.map-side .eq > .eq-net{grid-column:1/-1}
+.eq .btn{transition:background .35s,color .35s,box-shadow .35s,transform .2s}
+.bw-top output{display:inline-block}
+.fx-in{animation:fxIn .42s cubic-bezier(.2,.7,.2,1) both}
+.bump{animation:bump .3s cubic-bezier(.3,1.5,.5,1)}
+@keyframes fxIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes bump{0%{transform:scale(1.14)}100%{transform:scale(1)}}
+.rt.bk{stroke:var(--blue);stroke-width:1.6;stroke-dasharray:4 4;stroke-opacity:.6}
+.flow{fill:none;stroke-linecap:round;pointer-events:none;transition:opacity .25s}
+.flow.fl{stroke:var(--cyan);stroke-width:1.9;stroke-dasharray:7 33;animation:flowL 2.4s linear infinite}
+.flow.fs{stroke:#fff;stroke-width:1.9;stroke-dasharray:9 41;animation:flowS 3.2s linear infinite}
+@keyframes flowL{to{stroke-dashoffset:-40}}
+@keyframes flowS{to{stroke-dashoffset:-50}}
+.capl{font:700 11.5px var(--font);font-size:calc(11.5px / var(--k,1));fill:var(--blue);paint-order:stroke;stroke:#F4F7FB;stroke-width:calc(4px / var(--k,1));stroke-linejoin:round;transition:opacity .25s}
+.mk .disc{transform-box:fill-box;transform-origin:center;transition:transform .3s cubic-bezier(.3,1.4,.5,1),stroke .25s,stroke-width .25s}
+.mk:hover .disc{transform:scale(1.18);stroke:var(--cyan)}
+.mk .rip{fill:none;stroke:var(--cyan);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;pointer-events:none}
+.mk:hover .rip,.mk:focus-visible .rip{animation:rip 1.6s cubic-bezier(.2,.6,.3,1) infinite}
+.mk.on .rip{stroke:var(--orange);animation:rip 2s cubic-bezier(.2,.6,.3,1) infinite}
+.mk.on .glowc{opacity:.9;animation-duration:2s}
+@keyframes rip{0%{opacity:.75;transform:scale(1)}100%{opacity:0;transform:scale(2.8)}}
+.link,.link-glow{stroke-dasharray:1}
+.link.draw,.link-glow.draw{animation:draw .8s cubic-bezier(.4,0,.2,1) both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.mtag .tg{transform-box:fill-box;transform-origin:center}
+.tag-in{animation:tagIn .4s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes tagIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+#mapSvg.paused .flow,#mapSvg.paused .glowc,#mapSvg.paused .rip{animation-play-state:paused}
+.modal:not([hidden]){animation:mFade .25s ease both}
+.modal:not([hidden]) .modal-box{animation:mBox .38s cubic-bezier(.2,.8,.2,1) both}
+.modal.closing{animation:mFadeOut .2s ease both}
+.modal.closing .modal-box{animation:mBoxOut .2s ease both}
+@keyframes mFade{from{opacity:0}to{opacity:1}}
+@keyframes mFadeOut{from{opacity:1}to{opacity:0}}
+@keyframes mBox{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes mBoxOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(8px) scale(.99)}}
+.sheet:not([hidden]){animation:sheetIn .28s cubic-bezier(.2,.8,.2,1) both}
+@keyframes sheetIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+.stats.hl{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:36px}
+.stats.hl + .stats{margin-top:16px}
+.stat.big{padding:30px 28px;background:rgba(255,255,255,.12);border-color:rgba(0,212,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 18px 50px rgba(0,212,255,.14)}
+.stat.big .lbl{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--ink);background:var(--cyan);padding:4px 10px;border-radius:var(--r-pill);margin-bottom:16px}
+.stat.big .n{font-size:clamp(44px,6vw,76px)}
+.stat.big .n small{font-size:.45em;font-weight:700;color:var(--cyan);margin-left:6px}
+.stat.big p{font-size:15px}
+
+/* ===== v7: lighter sizing ===== */
+.sec{padding-block:64px}
+.h2{font-size:clamp(24px,3vw,34px)}
+.lead{font-size:16px}
+.hero h1{font-size:clamp(30px,4.2vw,50px)}
+.hero .lead{font-size:17px}
+.card{padding:22px 20px;gap:10px}
+.card h3{font-size:16.5px}
+.card p{font-size:13.5px}
+.ind-item{padding:24px;gap:12px}
+.ind-item h3{font-size:18px}
+.ind-item dd{font-size:14px}
+.row h3{font-size:clamp(20px,2.2vw,26px)}
+.about2 h3{font-size:19px}
+.about2 p{font-size:15px}
+.stat.big .n{font-size:clamp(40px,5vw,64px)}
+/* ===== v7: service cards ===== */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.card.sv{position:relative;isolation:isolate;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.card.sv::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;background:conic-gradient(from var(--ang),rgba(0,212,255,0) 0deg,rgba(0,212,255,0) 200deg,#00D4FF 290deg,#ffffff 320deg,#00D4FF 340deg,rgba(0,212,255,0) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s;pointer-events:none;z-index:1}
+.card.sv:hover::before,.card.sv:focus-visible::before,.card.sv.active::before{opacity:1;animation:spinB 3.2s linear infinite}
+.card.sv.active::before{animation-duration:2.2s}
+.card.sv.active{transform:translateY(-4px);box-shadow:0 26px 60px rgba(7,26,69,.18),0 0 0 1px rgba(0,212,255,.25),inset 0 1px 0 #fff}
+.card.sv:focus-visible{outline:none}
+@keyframes spinB{to{--ang:360deg}}
+.sv-more{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.card.sv.active .sv-more{grid-template-rows:1fr;opacity:1}
+.sv-more > div{overflow:hidden;min-height:0}
+.sv-tog{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:700;color:var(--blue)}
+.sv-tog i{position:relative;width:22px;height:22px;border-radius:50%;background:rgba(11,42,111,.08);flex:none;transition:background .3s,transform .35s cubic-bezier(.3,1.4,.5,1)}
+.sv-tog i::before,.sv-tog i::after{content:"";position:absolute;left:6px;right:6px;top:10px;height:2px;background:var(--blue);border-radius:2px}
+.sv-tog i::after{transform:rotate(90deg);transition:transform .3s}
+.card.sv.active .sv-tog i{background:var(--cyan);transform:rotate(180deg)}
+.card.sv.active .sv-tog i::after{transform:rotate(0)}
+.sv-more .ticks{margin-top:4px}
+.sv-more .more{margin-top:12px}
+/* ===== v7: simple map block ===== */
+.slab.sm{font-size:calc(10.5px / var(--k,1));font-weight:500}
+.m-two{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:12px}
+.modal-sum .ep-chips span{background:#fff}
+.cards{align-items:start}
+.card.sv{min-height:300px}
+.map-side .eq-hint{background:none;padding:0;font-size:13px;color:var(--muted);font-weight:600}
+.map-card{align-items:start}
+.map-card{grid-template-columns:minmax(0,1.65fr) minmax(0,1fr)!important;align-items:stretch}
+.map-card .map-stage{order:1;display:flex;flex-direction:column}
+.map-card .map-side{order:2;border-top:0!important;border-left:1px solid var(--line);display:block!important;padding:22px}
+.map-side .eq{display:grid;grid-template-columns:minmax(0,1fr)!important;gap:12px;background:none;border:0;padding:0}
+.map-side .eq > .btn{width:100%!important;min-width:0!important;justify-self:stretch!important}
+.map-tools{justify-content:flex-end}
+.map-scroll{flex:1}
+.map-scroll svg{min-width:0}
+.legend{position:static!important;margin:0;padding:10px 16px 14px;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;font-size:12px;max-width:none!important;gap:6px 14px}
+.zoom{bottom:58px}
+.zoom button{width:38px;height:38px;font-size:18px}
+.mk text{font-size:calc(13px / var(--k,1))}
+.g-cn{font-size:calc(11px / var(--k,1))}
+.g-cn.me{font-size:calc(12px / var(--k,1))}
+.sdot{fill:var(--ink);stroke:#fff;stroke-width:2}
+.slab{font:600 12px var(--font);font-size:calc(12px / var(--k,1));fill:#2B6F94;paint-order:stroke;stroke:#F4F7FB;stroke-width:calc(4px / var(--k,1));stroke-linejoin:round}
+.epf{display:grid;gap:6px}
+.epf label{display:flex;align-items:center;gap:8px}
+.epf .bdg{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.epf select{margin-top:0!important}
+.ep-chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:8px}
+.ep-chips span{display:inline-flex;gap:6px;align-items:baseline;padding:5px 10px;border-radius:var(--r-pill);background:var(--light);font-size:12px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.ep-chips span.off{color:var(--muted)}
+.ep-chips em{font-style:normal;font-weight:600;color:var(--muted)}
+.epf.has .ep-data{grid-template-rows:1fr}
+
+/* ===== v8: map in the style of a carrier network map ===== */
+.map-card{display:block!important;padding:0;overflow:hidden;margin-top:28px}
+.map-card .map-stage{position:relative;display:block;background:#F4F6F9}
+.map-scroll{overflow:hidden!important;padding:0!important}
+.map-scroll svg{display:block;width:100%;height:auto;min-width:0!important}
+.g-land{fill:#E1E5EC}
+.g-sea{fill:#F4F6F9}
+.g-geo{fill:#D2D9E5;stroke:#fff;stroke-width:2}
+.g-cn{fill:#9AA3B5}
+.g-cn.me{fill:var(--blue)}
+.g-seal{fill:#7FA3BE}
+.mk text{stroke:#E1E5EC}
+.ctx circle{fill:#9AA3B5}
+.ctx text{font:500 11px var(--font);font-size:calc(11px / var(--k,1));fill:#7A859B;paint-order:stroke;stroke:#E1E5EC;stroke-width:calc(3px / var(--k,1))}
+.nobk .rt.bk{opacity:0}
+.rt.bk{transition:opacity .3s}
+.mt{position:absolute;top:14px;left:14px;right:14px;display:flex;gap:12px;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:3}
+.mt > *{pointer-events:auto}
+.mfilt{position:relative;transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.mpanel-open .mfilt{opacity:0;pointer-events:none;transform:translateX(-10px)}
+.mbox{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 28px rgba(7,26,69,.12)}
+.fbtn{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 16px;font:600 14px var(--font);color:var(--ink);cursor:pointer}
+.fbtn svg{width:20px;height:20px;flex:none}
+.fbtn .chev{width:14px;height:14px;transition:transform .3s}
+.mfilt.open .fbtn .chev{transform:rotate(180deg)}
+.fmenu{position:absolute;left:0;top:56px;width:290px;padding:14px;display:grid;gap:8px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s,transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s}
+.mfilt.open .fmenu{opacity:1;visibility:visible;transform:none}
+.fmenu .ft{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.fmenu label{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:600;color:var(--ink);min-height:34px;cursor:pointer}
+.fmenu input{accent-color:var(--blue);width:18px;height:18px;flex:none;margin:0}
+.fmenu hr{border:0;border-top:1px solid var(--line);margin:4px 0;width:100%}
+.lgm{display:grid;gap:7px;font-size:12.5px;color:var(--muted);font-weight:600}
+.lgm span{display:flex;align-items:center;gap:10px}
+.lgm i{width:22px;height:4px;background:var(--blue);display:inline-block;flex:none}
+.lgm i.s{background:var(--cyan);box-shadow:0 0 0 2px var(--blue)}
+.lgm i.b{background:repeating-linear-gradient(90deg,var(--blue) 0 4px,transparent 4px 8px);opacity:.75}
+.lgm i.g{width:9px;height:9px;background:var(--orange);transform:rotate(45deg);margin:0 6px}
+.lgm i.c{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 2.5px var(--ink);margin:0 6px}
+.msearch{position:relative;flex:0 1 420px;min-width:0}
+.sbox{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 6px 0 16px}
+.sbox svg{width:19px;height:19px;flex:none}
+.sbox input{flex:1;min-width:0;border:0;background:none;font:500 16px/22px var(--font);color:var(--ink);padding:12px 0;outline:none}
+.sbox:focus-within{outline:2px solid var(--blue);outline-offset:1px}
+.sclr{width:36px;height:36px;border-radius:10px;border:0;background:none;color:var(--blue);font:600 20px/1 var(--font);cursor:pointer;opacity:0;visibility:hidden;transition:opacity .2s}
+.sclr.show{opacity:1;visibility:visible}
+.sbox input::-webkit-search-cancel-button,.sbox input::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
+.sres{position:absolute;left:0;right:0;top:56px;padding:6px;display:grid;gap:2px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .25s,visibility .25s;max-height:300px;overflow:auto}
+.sres.open{opacity:1;visibility:visible;transform:none}
+.sres button{display:grid;gap:1px;text-align:left;padding:9px 12px;border:0;border-radius:10px;background:none;cursor:pointer;font-family:var(--font)}
+.sres button b{font-size:14px;color:var(--ink)}
+.sres button span{font-size:12px;color:var(--muted);font-weight:500}
+.sres button:hover,.sres button.hl{background:var(--light)}
+.sres p{margin:0;padding:10px 12px;font-size:13px;color:var(--muted);font-weight:600}
+.map-stage .zoom{position:absolute;right:14px;bottom:14px;top:auto;display:grid;gap:8px;z-index:3}
+.map-stage .zoom button{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(7,26,69,.12);color:var(--blue);font:600 20px/1 var(--font);-webkit-backdrop-filter:none;backdrop-filter:none}
+.mphint{position:absolute;left:14px;bottom:14px;z-index:2;margin:0;padding:10px 14px;font-size:13px;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:8px;transition:opacity .3s}
+.mphint::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(0,212,255,.2)}
+.mpanel-open .mphint{opacity:0;pointer-events:none}
+.mpanel{position:absolute;left:14px;top:14px;bottom:14px;width:min(370px,calc(100% - 28px));z-index:4;display:flex;flex-direction:column;overflow:hidden;border-radius:18px;box-shadow:0 26px 60px rgba(7,26,69,.22);transform:translateX(calc(-100% - 24px));opacity:0;visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .35s,visibility .5s}
+.mpanel.open{transform:none;opacity:1;visibility:visible}
+.mp-body{flex:1;overflow:auto;padding:14px 18px 14px;display:grid;gap:14px;align-content:start;overscroll-behavior:contain}
+.mp-foot{padding:12px 18px 16px;border-top:1px solid var(--line);display:grid;gap:10px;background:#fff}
+.mp-foot .btn{width:100%}
+.mp-foot .eq-hint{background:none;padding:0;margin:0;font-size:12.5px;color:var(--muted);font-weight:600}
+.mp-back{justify-self:start;display:inline-flex;align-items:center;gap:8px;font:600 14px var(--font);color:var(--blue);background:none;border:0;padding:4px 0;min-height:36px;cursor:pointer}
+.mp-back svg{width:16px;height:16px}
+.mp-a h3{font-size:21px}
+.mp-a .t{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.mp-st{font-size:14.5px;font-weight:700;color:var(--ink)}
+.mp-ss{font-size:12.5px;color:var(--muted);font-weight:500;margin-top:2px}
+.svl{display:grid;gap:2px;border:1px solid var(--line);border-radius:14px;padding:6px}
+.svl label{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s}
+.svl label:hover{background:var(--light)}
+.svl label.on{background:rgba(0,212,255,.14)}
+.svl input{accent-color:var(--blue);width:18px;height:18px;flex:none;margin:0}
+.eps{display:grid;grid-template-columns:20px minmax(0,1fr);gap:0 10px;border:1px solid var(--line);border-radius:14px;padding:12px}
+.rail{grid-row:1/3;display:flex;flex-direction:column;align-items:center;padding:18px 0 22px}
+.rail svg{width:18px;height:18px;flex:none}
+.rail .ln{flex:1;width:0;border-left:2px dotted var(--gray);margin:6px 0}
+.rail .rg{width:12px;height:12px;border-radius:50%;border:2px solid var(--blue);flex:none;transition:background .3s}
+.eps.both .rail .rg{background:var(--blue)}
+.epc{padding:6px 0 10px;min-width:0}
+.epc + .epc{border-top:1px solid var(--line);padding-top:10px}
+.epc .k{font-size:11.5px;font-weight:700;color:var(--muted)}
+.epc .box{margin-top:6px;padding:10px 12px;border-radius:12px;background:var(--light)}
+.epc .box b{display:block;font-size:15px;color:var(--blue);line-height:1.3}
+.epc .box .t{font-size:12px;color:var(--muted);font-weight:600}
+.epc .box.empty{background:none;border:1.5px dashed var(--gray);color:var(--muted);font-size:13px;font-weight:600}
+.epc .box select{width:100%;margin-top:8px;font:500 15px/20px var(--font);min-height:42px;padding:8px 10px;border-radius:var(--r-sm);border:1px solid var(--line);background:#fff;color:var(--ink)}
+.epc .row-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.epc .xb{font:700 12.5px var(--font);color:var(--blue);background:none;border:0;cursor:pointer;min-height:32px;padding:4px}
+.mp-net{display:flex;flex-wrap:wrap;gap:6px}
+.mp-net span{display:inline-flex;gap:6px;align-items:baseline;padding:6px 11px;border-radius:var(--r-pill);background:var(--light);font-size:12.5px;font-weight:700;color:var(--blue)}
+.mp-net em{font-style:normal;font-weight:600;color:var(--muted)}
+.svgwrap{position:relative}
+@media (max-width:700px){
+  .mt{position:relative;z-index:6;padding:12px;flex-wrap:nowrap;background:#fff;border-bottom:1px solid var(--line)}
+  .mpanel-open .mfilt{opacity:1;pointer-events:auto;transform:none}
+  .fbtn{padding:0 12px}
+  .fbtn .lbl{display:none}
+  .msearch{flex:1 1 auto}
+  .fmenu{width:min(290px,calc(100vw - 56px))}
+  .mpanel{position:static;width:auto;transform:none;opacity:1;visibility:visible;border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none;display:none}
+  .mpanel.open{display:flex;animation:fxIn .4s cubic-bezier(.2,.7,.2,1) both}
+  .mp-body{overflow:visible}
+  .mphint{position:static;border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none}
+  .mpanel-open .mphint{display:none}
+  .map-stage .zoom{right:10px;bottom:10px;gap:6px}
+  .map-stage .zoom button{width:38px;height:38px;font-size:18px}
+}
+
+/* ===== v9: smaller facts + map ===== */
+.band.sec{padding-block:52px}
+.stats.hl{margin-top:24px;gap:12px}
+.stats.hl + .stats{margin-top:12px}
+.stats{gap:12px}
+.stat{padding:16px 18px}
+.stat .n{font-size:clamp(24px,2.6vw,32px)}
+.stat .bar{width:26px;height:3px;margin:10px 0 8px}
+.stat p{font-size:13px;line-height:1.5}
+.stat.big{padding:18px 22px}
+.stat.big .lbl{font-size:11px;padding:3px 9px;margin-bottom:8px}
+.stat.big .n{font-size:clamp(30px,3.4vw,42px)}
+.stat.big p{font-size:13.5px}
+@media (min-width:701px){.map-scroll svg{height:420px}}
+
+/* ===== v10: moving border on every framed card ===== */
+.fxb{position:relative;isolation:isolate}
+.fxb::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--ang),rgba(0,212,255,0) 0deg,rgba(0,212,255,0) 200deg,#00D4FF 290deg,#ffffff 320deg,#00D4FF 340deg,rgba(0,212,255,0) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s;pointer-events:none;z-index:5}
+.fxb:hover::before{opacity:1;animation:spinB 3.2s linear infinite}
+.fxb{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.fxb:hover{transform:translateY(-2px)}
+.form.fxb:hover,.panel.fxb:hover{transform:none}
+
+/* ===== v11: presentation schemes ===== */
+.sch{margin-top:20px;padding:24px}
+.sch .eyebrow{margin-bottom:6px}
+.sch > h3{font-size:20px}
+.sch > p{font-size:14px;color:var(--muted);margin-top:6px;max-width:70ch}
+.sch-tabs{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:999px;background:rgba(11,42,111,.07);width:max-content;max-width:100%;margin-top:16px}
+.sch-tabs button{font:600 13.5px var(--font);color:var(--blue);background:none;border:0;padding:9px 16px;border-radius:999px;cursor:pointer;min-height:40px;transition:background .25s,box-shadow .25s}
+.sch-tabs button[aria-selected="true"]{background:#fff;box-shadow:0 3px 10px rgba(7,26,69,.14)}
+.sch-pane{margin-top:16px}
+.sch-pane[hidden]{display:none}
+.sch-pane:not([hidden]){animation:fxIn .45s cubic-bezier(.2,.7,.2,1) both}
+.sch-pane h4{font-size:13.5px;font-weight:700;color:var(--ink);margin:0 0 10px;letter-spacing:.02em}
+.sch-fig{border-radius:16px;background:#071A45;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sch-fig svg{display:block;width:100%;min-width:760px;height:auto}
+.sch-lg{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12.5px;color:var(--muted);font-weight:600}
+.sch-lg span{display:inline-flex;align-items:center;gap:8px}
+.sch-lg i{display:inline-block;width:24px;height:3px;background:#00D4FF;box-shadow:0 0 0 1px #071A45}
+.sch-lg i.bk{background:repeating-linear-gradient(90deg,#071A45 0 5px,transparent 5px 9px);box-shadow:none;height:2px}
+.sch-lg i.ex{background:repeating-linear-gradient(90deg,#8A94A6 0 2px,transparent 2px 6px);box-shadow:none;height:2px}
+.sch-lg i.sv{background:#FF7A00;box-shadow:none}
+.sch-lg i.cb{width:12px;height:12px;border-radius:50%;background:none;box-shadow:inset 0 0 0 2px #00D4FF}
+.sch-lg i.gw{width:12px;height:12px;border-radius:50%;background:none;box-shadow:inset 0 0 0 2px #FF7A00}
+.sch-stage{position:relative}
+.sch-fig{position:relative;background:radial-gradient(120% 90% at 85% 10%,#123A8F 0%,rgba(18,58,143,0) 55%),radial-gradient(90% 80% at 10% 100%,rgba(255,122,0,.16) 0%,rgba(255,122,0,0) 55%),#071A45}
+.sch-fig svg{min-width:780px}
+.mx .l-glow{fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.28}
+.mx .l-core{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.mx .pri .l-glow{stroke:#00D4FF;stroke-width:12}
+.mx .pri .l-core{stroke:#00D4FF;stroke-width:3}
+.mx .svc .l-glow{stroke:#FF7A00;stroke-width:11}
+.mx .svc .l-core{stroke:#FF7A00;stroke-width:2.6}
+.mx .bk line{fill:none;stroke:#fff;stroke-opacity:.55;stroke-width:2;stroke-dasharray:6 7;animation:sxMarch 1.6s linear infinite}
+.mx .ex line{fill:none;stroke:#B9C3D6;stroke-opacity:.6;stroke-width:1.8;stroke-dasharray:1.5 7;stroke-linecap:round}
+.mx .draw{stroke-dasharray:1;stroke-dashoffset:1}
+.mx.play .draw{animation:sxDraw .9s cubic-bezier(.6,0,.2,1) forwards;animation-delay:var(--d,0s)}
+.mx .fadein,.mx .bgd,.mx .pt{opacity:0}
+.mx.play .fadein{animation:sxFade .6s ease forwards;animation-delay:var(--d,0s)}
+.mx.play .bgd{animation:sxFade 1s .05s forwards}
+.mx.play .pt{animation:sxFade .6s 1.8s forwards}
+.mx .mnode{cursor:pointer;opacity:0;outline:none}
+.mx .pop{transform-box:fill-box;transform-origin:center}
+.mx.play .mnode{animation:sxFade .01s forwards;animation-delay:var(--d,0s)}
+.mx.play .mnode .pop{animation:sxPop .7s cubic-bezier(.3,1.5,.5,1) both;animation-delay:var(--d,0s)}
+.mx .halo{transform-box:fill-box;transform-origin:center;animation:sxHalo 2.8s ease-in-out infinite}
+.mx .ring{fill:none;stroke-width:1.5;transform-box:fill-box;transform-origin:center;opacity:0}
+.mx .mnode:hover .ring,.mx .mnode.hl .ring{animation:sxRing 1.6s cubic-bezier(.2,.6,.3,1) infinite}
+.mx .front{transition:filter .25s}
+.mx .mnode:hover .front,.mx .mnode.hl .front{filter:brightness(1.35)}
+.mx .led{animation:sxLed 2.4s ease-in-out infinite}
+.mx .core{animation:sxCore 3s ease-in-out infinite}
+.mx .city{font:700 17px var(--font);fill:#fff}
+.mx .cap{font:700 11.5px var(--font);fill:#FF9A3D;letter-spacing:.02em}
+.mx .pill rect{fill:#FF7A00}
+.mx .pill text{font:700 12px var(--font);fill:#071A45}
+.mx .pill{transform-box:fill-box;transform-origin:center;opacity:0}
+.mx.play .pill{animation:sxPill .6s cubic-bezier(.3,1.4,.5,1) both;animation-delay:var(--d,0s)}
+.mx.dim-on .el{transition:opacity .3s}
+.mx.dim-on .el:not(.hl){opacity:.14!important}
+.sch-tip{position:absolute;z-index:4;min-width:240px;max-width:300px;padding:14px 16px;border-radius:16px;background:rgba(7,26,69,.8);border:1px solid rgba(255,255,255,.16);box-shadow:0 20px 50px rgba(0,0,0,.4);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .22s,transform .22s}
+.sch-tip.on{opacity:1;transform:none}
+.sch-tip b{display:block;font-size:15px}
+.sch-tip small{display:block;font-size:11.5px;color:#9FB0D3;font-weight:600;margin-top:2px}
+.sch-tip dl{margin:10px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:12.5px}
+.sch-tip dt{color:#9FB0D3;font-weight:600}
+.sch-tip dd{margin:0;font-weight:700;text-align:right}
+.sch-tip dd.o{color:#FF7A00}
+@keyframes sxDraw{to{stroke-dashoffset:0}}
+@keyframes sxFade{to{opacity:1}}
+@keyframes sxPop{0%{transform:scale(.2) translateY(14px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes sxPill{0%{transform:scale(.6);opacity:0}100%{transform:none;opacity:1}}
+@keyframes sxHalo{0%,100%{transform:scale(.85);opacity:.55}50%{transform:scale(1.12);opacity:.95}}
+@keyframes sxRing{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.2);opacity:0}}
+@keyframes sxMarch{to{stroke-dashoffset:-26}}
+@keyframes sxLed{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes sxCore{0%,100%{fill-opacity:.12}50%{fill-opacity:.45}}
+@media (prefers-reduced-motion:reduce){.mx .draw{stroke-dashoffset:0;animation:none!important}.mx .fadein,.mx .bgd,.mx .mnode,.mx .pill{opacity:1;animation:none!important}.mx .pop,.mx .halo,.mx .bk line,.mx .led,.mx .core{animation:none!important}.mx .pt{display:none}}
+.cap-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;background:#fff}
+table.capt{width:100%;min-width:640px;border-collapse:collapse}
+table.capt th{font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--blue);text-align:left;padding:12px 14px;border-bottom:2px solid var(--blue);background:var(--light)}
+table.capt td{font-size:13.5px;padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink);font-variant-numeric:tabular-nums}
+table.capt tr:last-child td{border-bottom:0}
+table.capt td:first-child{font-weight:700;color:var(--blue)}
+table.capt td small{display:block;font-size:11.5px;font-weight:600;color:var(--muted)}
+table.capt mark{background:var(--orange-tint);color:var(--ink);padding:2px 7px;border-radius:4px;font-weight:700;box-shadow:inset 0 0 0 1px rgba(255,122,0,.45)}
+.cap-note{font-size:12.5px;color:var(--muted);margin-top:10px}
+#mapSvg.paused ~ * .s-flow{animation-play-state:paused}
+
+/* ===== v12: lighter reading ===== */
+.clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--ln,2);overflow:hidden}
+.clamp.open{display:block;-webkit-line-clamp:unset;overflow:visible}
+.rmore{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font:700 13px var(--font);color:var(--blue);background:none;border:0;padding:4px 0;min-height:32px;cursor:pointer}
+.rmore::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s}
+.rmore.open::after{transform:rotate(-135deg) translateY(-1px)}
+.lead.clamp{--ln:2}
+.ind-item{cursor:pointer}
+.ind-item .ind-sol{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.ind-item .ind-sol > div{overflow:hidden;min-height:0}
+.ind-item.active .ind-sol{grid-template-rows:1fr;opacity:1}
+.ind-item .sv-tog{margin-top:2px}
+.ind-item.active .sv-tog i{background:var(--cyan);transform:rotate(180deg)}
+.ind-item.active .sv-tog i::after{transform:rotate(0)}
+.ind{align-items:start}
+.spec tr.xrow{display:none}
+.spec.all tr.xrow{display:table-row;animation:fxIn .35s cubic-bezier(.2,.7,.2,1) both}
+.row-art{min-height:240px}
+.rows{gap:48px}
+.row p{font-size:15px}
+
+/* ===== v13: collapsible schemes ===== */
+.sch-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;cursor:pointer}
+.sch-head h3{font-size:20px}
+.sch-head p{font-size:14px;color:var(--muted);margin-top:6px;max-width:70ch}
+.sch-tg{flex:none;display:inline-flex;align-items:center;gap:10px;font:700 13.5px var(--font);color:var(--blue);background:rgba(11,42,111,.07);border:0;border-radius:999px;padding:10px 16px;min-height:42px;cursor:pointer;transition:background .25s}
+.sch-tg:hover{background:rgba(11,42,111,.12)}
+.sch-tg i{position:relative;width:20px;height:20px;border-radius:50%;background:#fff;flex:none;transition:transform .35s cubic-bezier(.3,1.4,.5,1),background .3s}
+.sch-tg i::before{content:"";position:absolute;left:6px;top:5px;width:6px;height:6px;border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(45deg)}
+.sch.open .sch-tg i{transform:rotate(180deg);background:var(--cyan)}
+.sch-body{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1),opacity .35s}
+.sch-body > div{overflow:hidden;min-height:0}
+.sch.open .sch-body{grid-template-rows:1fr;opacity:1}
+@media (max-width:600px){.sch-head{flex-direction:column}.sch-tg{align-self:flex-start}}
+
+@media (max-width:1180px){
+  .tabs,.nav-cta{display:none}
+  .menu-btn{display:flex}
+}
+@media (max-width:900px){
+  .map-card{grid-template-columns:minmax(0,1fr)!important}
+  .map-card .map-side{border-left:0;border-top:1px solid var(--line)!important}
+  .map-card .map-side,.map-side .eq{grid-template-columns:minmax(0,1fr)}
+  .map-side .eq > .btn{width:100%;min-width:0}
+  .about2,.row,.info3{grid-template-columns:minmax(0,1fr)}
+  .row.flip .row-art{order:0}
+  .rows{gap:44px}
+}
+@media (max-width:600px){
+  .sec{padding-block:56px}
+  .row-art{min-height:230px}
+  .map-scroll svg{min-width:540px}
+  .m-two{grid-template-columns:minmax(0,1fr)}
+  .card.sv{min-height:0}
+  .map-scroll{padding-top:0!important}
+  .legend{margin:0!important}
+  .stat.big{padding:22px 18px}
+  .stat.big .n{font-size:clamp(26px,8vw,34px)}
+  .sch{padding:16px}
+  .sch-tabs{display:grid;width:100%;border-radius:14px}
+  .sch-tabs button{padding:8px 12px;font-size:13px;border-radius:10px;text-align:left}
+  .stat.big p{font-size:13.5px}
+  .search{max-width:none}
+  .map-scroll{padding-top:118px}
+  .legend{position:static;margin:10px 12px 12px;max-width:none}
+  .zoom{bottom:auto;top:130px}
+  .l3d{width:32px;height:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .l3d-in{animation:none;transform:rotateY(-18deg) rotateX(8deg)}
+  .mk .glowc{animation:none}
+  .card.sv::before,.fxb::before,.s-flow{animation:none!important}
+  .sch-pane:not([hidden]){animation:none}
+  .fxb:hover{transform:none}
+  .flow,.mk .rip,.link.draw,.link-glow.draw,.tag-in,.fx-in,.bump,.modal:not([hidden]),.modal:not([hidden]) .modal-box,.modal.closing,.modal.closing .modal-box,.sheet:not([hidden]){animation:none!important}
+}
+</style>
+
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-bar">
+    <a class="logo-link" href="#top" aria-label="FOPTNET">
+      <span class="l3d" aria-hidden="true"><span class="l3d-in">
+        <span class="l3d-shadow"></span>
+        <span class="l3d-side" style="transform:translateZ(-5px)"></span><span class="l3d-side" style="transform:translateZ(-3.5px)"></span><span class="l3d-side" style="transform:translateZ(-2px)"></span>
+        <span class="l3d-base"></span>
+        <svg viewBox="0 0 108 108" style="transform:translateZ(5px)"><g transform="translate(14,14) scale(0.66)"><polygon points="14,22 26,10 38,10 38,110 14,110" fill="#0B2A6F"/><polygon points="44,10 106,10 94,28 44,28" fill="#0B2A6F"/></g></svg>
+        <svg viewBox="0 0 108 108" style="transform:translateZ(9px)"><g transform="translate(14,14) scale(0.66)"><polygon points="44,40 88,40 78,56 44,56" fill="#8A94A6"/></g></svg>
+        <svg viewBox="0 0 108 108" style="transform:translateZ(13px)"><g transform="translate(14,14) scale(0.66)"><polygon points="44,68 70,68 60,84 44,84" fill="#00D4FF"/></g></svg>
+      </span></span>
+      <svg class="wm" viewBox="152 57 250 36" role="img" aria-label="FOPTNET"><path d="M157.82 91V58.8H182.13V64.8H165.29V91ZM164.72 79.28V73.29H180.19V79.28Z M205.83 91.54Q202.03 91.54 198.8 90.3Q195.57 89.06 193.2 86.81Q190.83 84.56 189.52 81.53Q188.2 78.49 188.2 74.89Q188.2 71.29 189.52 68.27Q190.83 65.25 193.2 62.99Q195.57 60.73 198.79 59.5Q202.01 58.26 205.81 58.26Q209.63 58.26 212.84 59.49Q216.04 60.72 218.4 62.97Q220.77 65.22 222.09 68.25Q223.4 71.28 223.4 74.89Q223.4 78.51 222.09 81.55Q220.77 84.59 218.4 86.83Q216.04 89.08 212.84 90.31Q209.63 91.54 205.83 91.54ZM205.81 85.23Q207.97 85.23 209.8 84.48Q211.62 83.73 212.99 82.35Q214.35 80.97 215.11 79.08Q215.87 77.19 215.87 74.89Q215.87 72.6 215.11 70.72Q214.35 68.84 212.99 67.46Q211.63 66.08 209.8 65.33Q207.97 64.57 205.82 64.57Q203.66 64.57 201.82 65.33Q199.99 66.08 198.62 67.46Q197.25 68.84 196.49 70.72Q195.73 72.61 195.73 74.89Q195.73 77.17 196.49 79.07Q197.25 80.96 198.62 82.35Q199.98 83.73 201.82 84.48Q203.66 85.23 205.81 85.23Z M232.03 91V58.8H245.95Q250.29 58.8 253.43 60.2Q256.57 61.61 258.26 64.23Q259.96 66.86 259.96 70.47Q259.96 74.06 258.26 76.68Q256.57 79.29 253.43 80.7Q250.29 82.12 245.95 82.12H236.17L239.5 78.78V91ZM239.5 79.58 236.17 76.05H245.57Q248.99 76.05 250.71 74.58Q252.43 73.11 252.43 70.47Q252.43 67.81 250.71 66.34Q248.99 64.87 245.57 64.87H236.17L239.5 61.33Z M275.36 91V64.89H265.07V58.8H293.12V64.89H282.83V91Z M300.13 91V58.8H306.28L325.29 82H322.32V58.8H329.68V91H323.53L304.52 67.8H307.49V91Z M340.3 91V58.8H364.62V64.8H347.7V85H365.24V91ZM347.16 77.55V71.76H362.67V77.55Z M380.83 91V64.89H370.54V58.8H398.59V64.89H388.3V91Z" fill="#0B2A6F"/></svg>
+    </a>
+    <nav class="tabs" id="tabs"><span class="tab-ind" id="tabInd"></span></nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ka">KA</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="ru">RU</button></div>
+      <a class="btn btn-primary nav-cta" href="#contact" id="navCta"></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="sheet"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="sheet" id="sheet" hidden></div>
+</header>
+
+<main id="top"><div id="app"></div></main>
+<footer id="footer"></footer>
+<div class="modal" id="modal" hidden></div>
+
+<script>
+(function(){
+"use strict";
+var L={
+ka:{
+ nav:['მთავარი','სერვისები','ქსელი','ინდუსტრიები','კომპანია','კონტაქტი'], cta:'შეთავაზების მოთხოვნა',
+ draft:'დემო ტექსტი: დასაზუსტებელია', soon:'დაემატება',
+ h:{crumb:'სამხრეთ კავკასია · ევროპა–აზიის სატრანზიტო დერეფანი', t:'ევროპა–აზიის სატრანზიტო ხიდი სამხრეთ კავკასიაში', l:'ფოპტნეტი 1996 წლიდან არის „საქართველოს ოპტიკური მაგისტრალის“ ოპერატორი: მაგისტრალური ოპტიკურ-ბოჭკოვანი ქსელი ოპერატორებისთვის, მონაცემთა ცენტრებისა და ფინანსური ინსტიტუტებისთვის.', b2:'ქსელის რუკა', f1k:'1996 წლიდან', f1v:'საქართველოს ოპტიკური მაგისტრალი', f2k:'სასაზღვრო კარიბჭეები', gates:['სარფი','ფოთი','წითელი ხიდი','გუგუთი']},
+ facts:{e:'ფაქტები', t:'ფოპტნეტი ციფრებში', i:[['1996','წლიდან საქართველოსა და კავკასიის სატელეკომუნიკაციო ბაზარზე'],['24/7','ქსელის ოპერაციების ცენტრი (NOC)'],['400G+','DWDM ტალღის სიგრძეები: 10G / 100G / 400G+'],['4','სასაზღვრო კარიბჭე: სარფი, ფოთი, წითელი ხიდი, გუგუთი']]},
+ sv:{e:'სერვისები', t:'გადაწყვეტები ოპერატორებისა და ბიზნესისთვის', l:'პროდუქტები მაგისტრალური ქსელის ბაზაზე: ბოჭკოდან მართულ სერვისამდე.', more:'დეტალურად', quote:'შეთავაზების მოთხოვნა', bro:'ტექნიკური ბროშურა: მზადდება',
+  i:[['მართული ოპტიკური ქსელი','Managed Optical Fiber Network','სრულად მართული ოპტიკური ქსელი: დაგეგმვა, აგება და 24/7 მონიტორინგი ჩვენი NOC-ის მიერ.',['ქსელის დიზაინი თქვენი მარშრუტებისთვის','24/7 მონიტორინგი და მხარდაჭერა','SLA ხელშეკრულებით']],
+     ['DWDM ტალღის სიგრძეები','DWDM Wavelengths','გამოყოფილი ოპტიკური არხები 10G, 100G და 400G+ გამტარობით მაგისტრალის კვანძებს შორის.',['10G / 100G / 400G+','გამოყოფილი, გამჭვირვალე არხი','დაცული მარშრუტის ვარიანტი']],
+     ['ბნელი ოპტიკური ბოჭკოს იჯარა','Dark Fiber & Protected Rings','ბნელი ოპტიკური ბოჭკოების იჯარა და დაცული რგოლები საკუთარი ქსელის ასაგებად.',['გრძელვადიანი იჯარა','დაცული რგოლები','სრული კონტროლი აპარატურაზე']],
+     ['საერთაშორისო სატრანზიტო არხები','Cross-Border Transit','ტრანზიტი საქართველოს გავლით სასაზღვრო კარიბჭეებს შორის: სარფი, ფოთი, წითელი ხიდი, გუგუთი.',['ოთხი სასაზღვრო კარიბჭე','ევროპა–აზიის მიმართულება','შავი ზღვის წყალქვეშა სისტემა']],
+     ['DCI და საბითუმო IP ტრანზიტი','DCI & Wholesale IP Transit','მონაცემთა ცენტრების ერთმანეთთან დაკავშირება და საბითუმო IP ტრანზიტი ოპერატორებისთვის.',['მონაცემთა ცენტრების დაკავშირება','საბითუმო IP ტრანზიტი','მასშტაბირებადი გამტარობა']]]},
+ q:{a:['ქსელის ინტერაქტიული რუკა','მაგისტრალი, კვანძები და სასაზღვრო კარიბჭეები ერთ სქემაზე.','რუკის გახსნა'], b:['ინდივიდუალური შეთავაზება','აირჩიეთ სერვისი, A და B წერტილები და გამტარობა.','მოთხოვნის გაგზავნა']},
+ nw:{e:'ქსელი და ინფრასტრუქტურა', t:'ჩვენი ქსელი და დაფარვა', l:'„საქართველოს ოპტიკური მაგისტრალი“ და სასაზღვრო კარიბჭეები კვანძების (PoP) მიხედვით. აირჩიეთ ორი წერტილი და ააწყვეთ მოთხოვნა.', seg:['ყველა','ეროვნული','წყალქვეშა'], sea:'შავი ზღვა', lg:['ხმელეთის მაგისტრალი','წყალქვეშა სისტემა','სასაზღვრო კარიბჭე'], note:'სქემა საილუსტრაციოა: ზუსტი მარშრუტი და კვანძები დაემატება კომპანიის მონაცემების მიხედვით.',
+  p:{tbs:['თბილისი','მაგისტრალის კვანძი (PoP)','ეროვნული მაგისტრალის კვანძი დედაქალაქში.',''],pot:['ფოთი','სასაზღვრო კარიბჭე · შავი ზღვა','წყალქვეშა სისტემა „საქართველო – რუსეთი“ სოჭის გავლით ნოვოროსიისკის მიმართულებით.',''],sar:['სარფი','სასაზღვრო კარიბჭე','მიმართულება: თურქეთი.','თურქეთი'],red:['წითელი ხიდი','სასაზღვრო კარიბჭე','მიმართულება: აზერბაიჯანი.','აზერბაიჯანი'],gug:['გუგუთი','სასაზღვრო კარიბჭე','მიმართულება: სომხეთი.','სომხეთი'],soc:['სოჭი','წყალქვეშა სისტემა','სატრანზიტო წერტილი ნოვოროსიისკის მიმართულებით.',''],nov:['ნოვოროსიისკი','წყალქვეშა სისტემა','მსხვილი სატელეკომუნიკაციო კვანძი.','რუსეთი']},
+  st:'ტექნიკური სპეციფიკაციები', sp:[['ტექნოლოგია','DWDM, ოპტიკურ-ბოჭკოვანი მაგისტრალი'],['გამტარობა','10G / 100G / 400G+'],['აპარატურა',null],['რეზერვირება',null],['დაყოვნების მაჩვენებლები',null],['მონიტორინგი','24/7 NOC']],
+  dt:'რუკები და ფაილები', d1:'ქსელის ტოპოლოგიის საპრეზენტაციო PDF რუკა.', d1b:'PDF რუკა: მზადდება', d2:'KMZ ფაილები გაიცემა მოთხოვნით, NDA-ის პირობით.', d2b:'KMZ ფაილების მოთხოვნა'},
+ ind:{e:'ინდუსტრიები', t:'ინდუსტრიები და გამოყენების სცენარები', l:'როგორ წყვეტს ფოპტნეტი კონკრეტული სექტორების ამოცანებს.', n:'ამოცანა', s:'გადაწყვეტა',
+  i:[['საერთაშორისო ტელეკომ-ოპერატორები','საიმედო სატრანზიტო მარშრუტი ევროპასა და აზიას შორის.','სატრანზიტო არხები, DWDM ტალღის სიგრძეები და ბნელი ბოჭკო სასაზღვრო კარიბჭეებს შორის.'],
+     ['მონაცემთა ცენტრები და ღრუბლოვანი პროვაიდერები','მაღალი გამტარობა და დაბალი დაყოვნება ობიექტებს შორის.','DCI კავშირები და მართული ოპტიკური ქსელი.'],
+     ['ბანკები და ფინანსური სექტორი','დაცული, რეზერვირებული კავშირი ფილიალებსა და მონაცემთა ცენტრებს შორის.','გამოყოფილი არხები, დაცული რგოლები და SLA.'],
+     ['სახელმწიფო და კრიტიკული ინფრასტრუქტურა','უწყვეტი კავშირი ქვეყნის მასშტაბით.','ეროვნული მაგისტრალი და 24/7 NOC მონიტორინგი.']]},
+ ab:{e:'კომპანიის შესახებ', t:'გამოცდილება 1996 წლიდან', l:'ფოპტნეტი არის პირველი ეროვნული და საერთაშორისო ოპტიკურ-ბოჭკოვანი ქსელის ოპერატორი საქართველოში.', he:'ისტორია', ht:'ეტაპები',
+  tl:[['1996','დაარსება','კომპანია იწყებს მოღვაწეობას საქართველოსა და კავკასიის სატელეკომუნიკაციო ბაზარზე.'],['1997–1999','საქართველოს ოპტიკური მაგისტრალი','ოპტიკურ-ბოჭკოვანი საკაბელო მაგისტრალი, რომელიც მოიცავს საქართველოს ტერიტორიის მნიშვნელოვან ნაწილს.'],['1997–1999','სისტემა „საქართველო – რუსეთი“','წყალქვეშა ოპტიკურ-ბოჭკოვანი სისტემა შავ ზღვაში, დანიურ „გრეიტ ნორზერნ ტელეგრაფ კომპანისთან“ და რუსულ „ვესტელკომთან“ ერთად. სოჭის გავლით უკავშირდება ნოვოროსიისკის კვანძს.'],['2005','T&T ჯგუფი','ფოპტნეტი შედის ტელეკომუნიკაციების და ტექნოლოგიების ჯგუფ T&T-ის შემადგენლობაში.']],
+  ce:'სატრანზიტო დერეფანი', ct:'მაგისტრალის მნიშვნელობა რეგიონში', cp:'„საქართველოს ოპტიკური მაგისტრალი“ აკავშირებს ქვეყნის სასაზღვრო კარიბჭეებს და ქმნის სახმელეთო და საზღვაო მარშრუტს ევროპასა და აზიას შორის სამხრეთ კავკასიის გავლით.',
+  qe:'ხარისხი', qt:'სტანდარტები და გარანტიები', qi:[['SLA გარანტიები','მომსახურების დონე ფიქსირდება ხელშეკრულებით.'],['NOC 24/7','ქსელის ოპერაციების ცენტრი მუშაობს უწყვეტად.'],['სერტიფიკატები და ლიცენზიები','დოკუმენტების ჩამონათვალი დაემატება.']],
+  ge:'ჯგუფი', gt:'T&T: ტელეკომუნიკაციების და ტექნოლოგიების ჯგუფი', gk:['მაგისტრალური ქსელი','ჯგუფის კომპანია'], gn:['ფოპტნეტი','სისტემ ნეტი','ახალი ქსელები'], gp:'ეროვნული და საერთაშორისო ოპტიკურ-ბოჭკოვანი ქსელის ოპერატორი.'},
+ c:{e:'კონტაქტი', t:'კონტაქტი და შეთავაზების მოთხოვნა', l:'აღწერეთ საჭირო კავშირი და კომერციული დეპარტამენტი მოგიმზადებთ ინდივიდუალურ შეთავაზებას.', info:[['ოფისი','მისამართი და სამუშაო საათები'],['24/7 NOC ცხელი ხაზი','ტელეფონი და ელ. ფოსტა'],['კომერციული დეპარტამენტი','ტელეფონი და ელ. ფოსტა']], ft:'კომერციული მოთხოვნა (RFQ)',
+  f:{name:'სახელი და გვარი',co:'კომპანია',mail:'ელ. ფოსტა',tel:'ტელეფონი',svc:'სერვისი',pick:'აირჩიეთ',cap:'გამტარუნარიანობა',other:'სხვა',a:'A წერტილი',b:'B წერტილი',type:'მოთხოვნის ტიპი',t1:'ინდივიდუალური შეთავაზება',t2:'NDA-ის გაფორმება',t3:'KMZ ფაილები',msg:'დამატებითი ინფორმაცია',send:'მოთხოვნის გაგზავნა'},
+  err:'შეავსეთ სახელი, კომპანია და სწორი ელ. ფოსტა.', demo:'დემო ვერსიაში ფორმა ჯერ არ იგზავნება.'},
+ ft:{p:'პირველი ეროვნული და საერთაშორისო ოპტიკურ-ბოჭკოვანი ქსელის ოპერატორი საქართველოში.', a:'გვერდები', b:'ენა', c:'© 2026 ფოპტნეტი', d:'დემო ვერსია'}
+},
+en:{
+ nav:['Home','Services','Network','Industries','About','Contact'], cta:'Request a quote',
+ draft:'Demo copy: to be confirmed', soon:'To be added',
+ h:{crumb:'South Caucasus · Europe–Asia transit corridor', t:'The Europe–Asia transit bridge in the South Caucasus', l:'Since 1996 Foptnet has operated the Georgian Optical Backbone: a carrier-grade fiber network for operators, data centers and financial institutions.', b2:'Network map', f1k:'Since 1996', f1v:'Georgian Optical Backbone', f2k:'Border gateways', gates:['Sarpi','Poti','Red Bridge','Guguti']},
+ facts:{e:'Facts', t:'Foptnet in numbers', i:[['1996','on the telecom market of Georgia and the Caucasus since'],['24/7','Network Operations Center (NOC)'],['400G+','DWDM wavelengths: 10G / 100G / 400G+'],['4','border gateways: Sarpi, Poti, Red Bridge, Guguti']]},
+ sv:{e:'Services', t:'Solutions for carriers and enterprises', l:'Products built on the backbone network, from fiber to fully managed service.', more:'Details', quote:'Request a quote', bro:'Technical brochure: in preparation',
+  i:[['Managed Optical Fiber Network','Managed Optical Fiber Network','A fully managed optical network: design, build and 24/7 monitoring by our NOC.',['Network design for your routes','24/7 monitoring and support','Contractual SLA']],
+     ['DWDM Wavelengths','10G / 100G / 400G+','Dedicated optical channels at 10G, 100G and 400G+ between backbone nodes.',['10G / 100G / 400G+','Dedicated, transparent channel','Protected route option']],
+     ['Dark Fiber Lease','Dark Fiber & Protected Rings','Dark fiber lease and protected rings for building your own network.',['Long-term lease','Protected rings','Full control of your equipment']],
+     ['Cross-Border Transit','Cross-Border Transit','Transit across Georgia between border gateways: Sarpi, Poti, Red Bridge, Guguti.',['Four border gateways','Europe–Asia direction','Black Sea submarine system']],
+     ['DCI & Wholesale IP Transit','Data Center Interconnect','Data center interconnection and wholesale IP transit for operators.',['Data center interconnect','Wholesale IP transit','Scalable capacity']]]},
+ q:{a:['Interactive network map','The backbone, nodes and border gateways on one diagram.','Open the map'], b:['Individual offer','Choose a service, points A and B, and capacity.','Send a request']},
+ nw:{e:'Network & infrastructure', t:'Our network and coverage', l:'The Georgian Optical Backbone and its border gateways by node (PoP). Select two points to build an enquiry.', seg:['All','National','Submarine'], sea:'BLACK SEA', lg:['Terrestrial backbone','Submarine system','Border gateway'], note:'The diagram is illustrative: exact routes and nodes will be added from company data.',
+  p:{tbs:['Tbilisi','Backbone node (PoP)','National backbone node in the capital.',''],pot:['Poti','Border gateway · Black Sea','The Georgia–Russia submarine system runs via Sochi towards Novorossiysk.',''],sar:['Sarpi','Border gateway','Direction: Türkiye.','Türkiye'],red:['Red Bridge','Border gateway','Direction: Azerbaijan.','Azerbaijan'],gug:['Guguti','Border gateway','Direction: Armenia.','Armenia'],soc:['Sochi','Submarine system','Transit point towards Novorossiysk.',''],nov:['Novorossiysk','Submarine system','A major telecommunications hub.','Russia']},
+  st:'Technical specifications', sp:[['Technology','DWDM, fiber-optic backbone'],['Capacity','10G / 100G / 400G+'],['Equipment',null],['Redundancy',null],['Latency figures',null],['Monitoring','24/7 NOC']],
+  dt:'Maps and files', d1:'Presentation PDF map of the network topology.', d1b:'PDF map: in preparation', d2:'KMZ files are provided on request, under NDA.', d2b:'Request KMZ files'},
+ ind:{e:'Industries', t:'Industries and use cases', l:'How Foptnet solves the tasks of specific sectors.', n:'Need', s:'Solution',
+  i:[['International telecom operators','A reliable transit route between Europe and Asia.','Transit channels, DWDM wavelengths and dark fiber between border gateways.'],
+     ['Data centers and cloud providers','High capacity and low latency between sites.','DCI links and a managed optical network.'],
+     ['Banks and the financial sector','Secure, redundant connectivity between branches and data centers.','Dedicated channels, protected rings and SLA.'],
+     ['Government and critical infrastructure','Uninterrupted nationwide connectivity.','The national backbone with 24/7 NOC monitoring.']]},
+ ab:{e:'About us', t:'Experience since 1996', l:'Foptnet is the first national and international fiber-optic network operator in Georgia.', he:'History', ht:'Milestones',
+  tl:[['1996','Founded','The company starts operating on the telecom market of Georgia and the Caucasus.'],['1997–1999','Georgian Optical Backbone','A fiber-optic cable backbone covering a significant part of Georgia.'],['1997–1999','Georgia–Russia system','A submarine fiber-optic system in the Black Sea, built with Denmark’s Great Northern Telegraph Company and Russia’s Westelcom. It reaches the Novorossiysk hub via Sochi.'],['2005','T&T Group','Foptnet joins the Telecommunications and Technologies group, T&T.']],
+  ce:'Transit corridor', ct:'The backbone’s role in the region', cp:'The Georgian Optical Backbone links the country’s border gateways and forms a terrestrial and submarine route between Europe and Asia through the South Caucasus.',
+  qe:'Quality', qt:'Standards and guarantees', qi:[['SLA guarantees','Service levels are fixed by contract.'],['NOC 24/7','The Network Operations Center works around the clock.'],['Certificates and licenses','The list of documents will be added.']],
+  ge:'Group', gt:'T&T: Telecommunications and Technologies group', gk:['Backbone network','Group company'], gn:['Foptnet','System Net','Akhali Kselebi'], gp:'National and international fiber-optic network operator.'},
+ c:{e:'Contact', t:'Contact and request a quote', l:'Describe the connectivity you need and our commercial department will prepare an individual offer.', info:[['Office','Address and working hours'],['24/7 NOC hotline','Phone and email'],['Commercial department','Phone and email']], ft:'Request for quotation (RFQ)',
+  f:{name:'Full name',co:'Company',mail:'Email',tel:'Phone',svc:'Service',pick:'Select',cap:'Capacity',other:'Other',a:'Point A',b:'Point B',type:'Request type',t1:'Individual offer',t2:'Sign an NDA',t3:'KMZ files',msg:'Additional information',send:'Send request'},
+  err:'Please fill in your name, company and a valid email.', demo:'The form is not sent yet in this demo.'},
+ ft:{p:'The first national and international fiber-optic network operator in Georgia.', a:'Pages', b:'Language', c:'© 2026 Foptnet', d:'Demo version'}
+},
+ru:{
+ nav:['Главная','Услуги','Сеть','Отрасли','О компании','Контакты'], cta:'Запросить предложение',
+ draft:'Демо-текст: требует уточнения', soon:'Будет добавлено',
+ h:{crumb:'Южный Кавказ · транзитный коридор Европа–Азия', t:'Транзитный мост Европа–Азия на Южном Кавказе', l:'С 1996 года Фоптнет является оператором «Оптической магистрали Грузии»: магистральной волоконно-оптической сети для операторов, дата-центров и финансовых институтов.', b2:'Карта сети', f1k:'С 1996 года', f1v:'Оптическая магистраль Грузии', f2k:'Пограничные шлюзы', gates:['Сарпи','Поти','Красный мост','Гугути']},
+ facts:{e:'Факты', t:'Фоптнет в цифрах', i:[['1996','года на телекоммуникационном рынке Грузии и Кавказа'],['24/7','Центр управления сетью (NOC)'],['400G+','длины волн DWDM: 10G / 100G / 400G+'],['4','пограничных шлюза: Сарпи, Поти, Красный мост, Гугути']]},
+ sv:{e:'Услуги', t:'Решения для операторов и бизнеса', l:'Продукты на базе магистральной сети: от волокна до управляемого сервиса.', more:'Подробнее', quote:'Запросить предложение', bro:'Техническая брошюра: готовится',
+  i:[['Управляемая оптическая сеть','Managed Optical Fiber Network','Полностью управляемая оптическая сеть: проектирование, строительство и мониторинг 24/7 силами нашего NOC.',['Проектирование под ваши маршруты','Мониторинг и поддержка 24/7','SLA по договору']],
+     ['Длины волн DWDM','DWDM Wavelengths','Выделенные оптические каналы 10G, 100G и 400G+ между узлами магистрали.',['10G / 100G / 400G+','Выделенный прозрачный канал','Вариант с защищённым маршрутом']],
+     ['Аренда тёмного волокна','Dark Fiber & Protected Rings','Аренда тёмных оптических волокон и защищённые кольца для построения собственной сети.',['Долгосрочная аренда','Защищённые кольца','Полный контроль над оборудованием']],
+     ['Международные транзитные каналы','Cross-Border Transit','Транзит через Грузию между пограничными шлюзами: Сарпи, Поти, Красный мост, Гугути.',['Четыре пограничных шлюза','Направление Европа–Азия','Подводная система в Чёрном море']],
+     ['DCI и оптовый IP-транзит','DCI & Wholesale IP Transit','Соединение дата-центров между собой и оптовый IP-транзит для операторов.',['Соединение дата-центров','Оптовый IP-транзит','Масштабируемая пропускная способность']]]},
+ q:{a:['Интерактивная карта сети','Магистраль, узлы и пограничные шлюзы на одной схеме.','Открыть карту'], b:['Индивидуальное предложение','Выберите услугу, точки A и B и пропускную способность.','Отправить запрос']},
+ nw:{e:'Сеть и инфраструктура', t:'Наша сеть и покрытие', l:'«Оптическая магистраль Грузии» и пограничные шлюзы по узлам (PoP). Выберите две точки и соберите запрос.', seg:['Все','Национальная','Подводная'], sea:'ЧЁРНОЕ МОРЕ', lg:['Наземная магистраль','Подводная система','Пограничный шлюз'], note:'Схема иллюстративная: точные маршруты и узлы будут добавлены по данным компании.',
+  p:{tbs:['Тбилиси','Узел магистрали (PoP)','Узел национальной магистрали в столице.',''],pot:['Поти','Пограничный шлюз · Чёрное море','Подводная система «Грузия – Россия» идёт через Сочи в направлении Новороссийска.',''],sar:['Сарпи','Пограничный шлюз','Направление: Турция.','Турция'],red:['Красный мост','Пограничный шлюз','Направление: Азербайджан.','Азербайджан'],gug:['Гугути','Пограничный шлюз','Направление: Армения.','Армения'],soc:['Сочи','Подводная система','Транзитная точка в направлении Новороссийска.',''],nov:['Новороссийск','Подводная система','Крупный телекоммуникационный узел.','Россия']},
+  st:'Технические характеристики', sp:[['Технология','DWDM, волоконно-оптическая магистраль'],['Пропускная способность','10G / 100G / 400G+'],['Оборудование',null],['Резервирование',null],['Показатели задержки',null],['Мониторинг','NOC 24/7']],
+  dt:'Карты и файлы', d1:'Презентационная PDF-карта топологии сети.', d1b:'PDF-карта: готовится', d2:'KMZ-файлы предоставляются по запросу, на условиях NDA.', d2b:'Запросить KMZ-файлы'},
+ ind:{e:'Отрасли', t:'Отрасли и сценарии использования', l:'Как Фоптнет решает задачи конкретных секторов.', n:'Задача', s:'Решение',
+  i:[['Международные операторы связи','Надёжный транзитный маршрут между Европой и Азией.','Транзитные каналы, длины волн DWDM и тёмное волокно между пограничными шлюзами.'],
+     ['Дата-центры и облачные провайдеры','Высокая пропускная способность и низкая задержка между площадками.','DCI-соединения и управляемая оптическая сеть.'],
+     ['Банки и финансовый сектор','Защищённая резервированная связь между филиалами и дата-центрами.','Выделенные каналы, защищённые кольца и SLA.'],
+     ['Государство и критическая инфраструктура','Бесперебойная связь в масштабе страны.','Национальная магистраль и мониторинг NOC 24/7.']]},
+ ab:{e:'О компании', t:'Опыт с 1996 года', l:'Фоптнет — первый оператор национальной и международной волоконно-оптической сети в Грузии.', he:'История', ht:'Этапы',
+  tl:[['1996','Основание','Компания начинает работу на телекоммуникационном рынке Грузии и Кавказа.'],['1997–1999','Оптическая магистраль Грузии','Волоконно-оптическая кабельная магистраль, охватывающая значительную часть территории Грузии.'],['1997–1999','Система «Грузия – Россия»','Подводная волоконно-оптическая система в Чёрном море, построенная совместно с датской Great Northern Telegraph Company и российским «Вестелкомом». Через Сочи соединяется с узлом в Новороссийске.'],['2005','Группа T&T','Фоптнет входит в группу телекоммуникаций и технологий T&T.']],
+  ce:'Транзитный коридор', ct:'Значение магистрали для региона', cp:'«Оптическая магистраль Грузии» соединяет пограничные шлюзы страны и образует наземный и морской маршрут между Европой и Азией через Южный Кавказ.',
+  qe:'Качество', qt:'Стандарты и гарантии', qi:[['Гарантии SLA','Уровень обслуживания закрепляется договором.'],['NOC 24/7','Центр управления сетью работает круглосуточно.'],['Сертификаты и лицензии','Перечень документов будет добавлен.']],
+  ge:'Группа', gt:'T&T: группа телекоммуникаций и технологий', gk:['Магистральная сеть','Компания группы'], gn:['Фоптнет','Систем Нет','Ахали Кселеби'], gp:'Оператор национальной и международной волоконно-оптической сети.'},
+ c:{e:'Контакты', t:'Контакты и запрос предложения', l:'Опишите нужное соединение, и коммерческий отдел подготовит индивидуальное предложение.', info:[['Офис','Адрес и часы работы'],['Горячая линия NOC 24/7','Телефон и эл. почта'],['Коммерческий отдел','Телефон и эл. почта']], ft:'Коммерческий запрос (RFQ)',
+  f:{name:'Имя и фамилия',co:'Компания',mail:'Эл. почта',tel:'Телефон',svc:'Услуга',pick:'Выберите',cap:'Пропускная способность',other:'Другое',a:'Точка A',b:'Точка B',type:'Тип запроса',t1:'Индивидуальное предложение',t2:'Подписание NDA',t3:'KMZ-файлы',msg:'Дополнительная информация',send:'Отправить запрос'},
+  err:'Укажите имя, компанию и корректный адрес эл. почты.', demo:'В демо-версии форма пока не отправляется.'},
+ ft:{p:'Первый оператор национальной и международной волоконно-оптической сети в Грузии.', a:'Страницы', b:'Язык', c:'© 2026 Фоптнет', d:'Демо-версия'}
+}};
+
+
+L.ka.eq={t:'კავშირის აწყობა',h1:'აირჩიეთ პირველი წერტილი რუკაზე ან სიიდან.',h2:'ახლა აირჩიეთ მეორე წერტილი.',h3:'მარშრუტი მზადაა. აირჩიეთ სერვისი და გამტარობა.',a:'პირველი წერტილი',b:'მეორე წერტილი',none:'არ არის არჩეული',clear:'× გასუფთავება',prod:'სერვისი',bw:'რა გამტარობა გჭირდებათ?',go:'მოთხოვნის შექმნა',mt:'მოთხოვნის გაგზავნა',fn:'სახელი',ln:'გვარი',mail:'სამუშაო ელ. ფოსტა',co:'კომპანია',ok:'ვეთანხმები კონფიდენციალურობის პოლიტიკას და საიტის პირობებს',req:'* სავალდებულო ველი',send:'გაგზავნა',sum:'თქვენი არჩევანი',close:'დახურვა',err:'შეავსეთ ყველა ველი და დაეთანხმეთ პირობებს.',sim:'სიმულაცია: წერტილები საცდელია.'};
+L.en.eq={t:'Build a connection',h1:'Select the first endpoint on the map or in the list.',h2:'Now select the second endpoint.',h3:'Route ready. Choose a service and capacity.',a:'First endpoint',b:'Second endpoint',none:'Not selected',clear:'× Clear',prod:'Service',bw:'How much capacity do you need?',go:'Create an enquiry',mt:'Send an enquiry',fn:'First name',ln:'Last name',mail:'Work email',co:'Company',ok:'I agree to the Privacy Policy and Site Terms',req:'* Required field',send:'Send',sum:'Your selection',close:'Close',err:'Please fill in all fields and accept the terms.',sim:'Simulation: the points are placeholders.'};
+L.ru.eq={t:'Сборка соединения',h1:'Выберите первую точку на карте или в списке.',h2:'Теперь выберите вторую точку.',h3:'Маршрут готов. Выберите услугу и пропускную способность.',a:'Первая точка',b:'Вторая точка',none:'Не выбрана',clear:'× Очистить',prod:'Услуга',bw:'Какая пропускная способность нужна?',go:'Создать запрос',mt:'Отправить запрос',fn:'Имя',ln:'Фамилия',mail:'Рабочая эл. почта',co:'Компания',ok:'Я согласен с Политикой конфиденциальности и Условиями сайта',req:'* Обязательное поле',send:'Отправить',sum:'Ваш выбор',close:'Закрыть',err:'Заполните все поля и примите условия.',sim:'Симуляция: точки условные.'};
+var BW=['10G','100G','400G+'];
+
+
+var ICONS=[
+ '<svg viewBox="0 0 48 48" fill="none" stroke="#0B2A6F" stroke-width="2" stroke-linecap="square"><path d="M24 6L40 12V26L24 42L8 26V12Z"/><path d="M16 24L22 30L32 18" stroke="#00D4FF"/></svg>',
+ '<svg viewBox="0 0 48 48" fill="none" stroke="#0B2A6F" stroke-width="2"><path d="M4 16C10 8 14 8 20 16S30 24 36 16 42 10 44 12"/><path d="M4 26C10 18 14 18 20 26S30 34 36 26 42 20 44 22" stroke="#8A94A6"/><path d="M4 36C10 28 14 28 20 36S30 44 36 36 42 30 44 32" stroke="#00D4FF"/></svg>',
+ '<svg viewBox="0 0 48 48" fill="none" stroke="#0B2A6F" stroke-width="2"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3.5" fill="#00D4FF" stroke="#00D4FF"/></svg>',
+ '<svg viewBox="0 0 48 48" fill="none" stroke="#0B2A6F" stroke-width="2" stroke-linecap="square"><path d="M6 14H30L24 8M42 34H18L24 40"/><path d="M24 14V34" stroke="#00D4FF" stroke-dasharray="3 4"/></svg>',
+ '<svg viewBox="0 0 48 48" fill="none" stroke="#0B2A6F" stroke-width="2" stroke-linecap="square"><rect x="6" y="10" width="14" height="28"/><rect x="28" y="10" width="14" height="28"/><path d="M20 24H28" stroke="#00D4FF"/><path d="M10 16H16M10 22H16M32 16H38M32 22H38"/></svg>'
+];
+
+
+var G={"sea":"M0,0.0 L0.0,22.0 L24.0,33.0 L61.6,52.8 L85.6,70.4 L165.6,121.0 L217.6,177.1 L240.0,200.2 L261.6,211.2 L284.0,228.8 L321.6,242.0 L357.6,273.9 L364.0,305.8 L373.6,335.5 L381.6,371.8 L370.4,390.5 L364.0,404.8 L353.6,418.0 L281.6,459.8 L217.6,462.0 L112.0,470.8 L0,451.0 Z","geo":"M364.0,404.8 L370.4,390.5 L381.6,371.8 L373.6,335.5 L364.0,305.8 L357.6,273.9 L321.6,242.0 L284.0,228.8 L261.6,211.2 L240.0,200.2 L260.0,178.2 L294.4,181.5 L352.0,203.5 L400.0,220.0 L448.0,222.2 L480.0,247.5 L540.0,269.5 L560.0,286.0 L604.0,269.5 L632.0,269.5 L656.0,275.0 L692.0,297.0 L700.0,324.5 L754.4,363.0 L777.6,431.2 L760.0,456.5 L716.0,442.2 L645.6,429.0 L604.0,441.1 L568.8,440.0 L540.0,449.9 L516.0,448.8 L496.0,429.0 L468.0,398.2 L440.0,413.6 L396.0,404.8 Z","main":"M373.6,335.5 C378.9,333.3 391.9,324.5 405.6,322.3 C419.3,320.1 442.9,319.4 456.0,322.3 C469.1,325.2 472.0,334.8 484.0,339.9 C496.0,345.0 513.9,350.7 528.0,353.1 C542.1,355.5 553.9,351.4 568.8,354.2 C583.7,356.9 608.4,364.8 617.6,369.6 C626.8,374.4 622.9,380.6 624.0,382.8","subm":"M373.6,335.5 C364.7,330.0 339.6,316.2 320.0,302.5 C300.4,288.8 274.7,268.6 256.0,253.0 C237.3,237.4 214.4,221.7 208.0,209.0 C201.6,196.3 220.9,182.6 217.6,177.1 C214.3,171.6 201.6,182.6 188.0,176.0 C174.4,169.4 153.3,152.2 136.0,137.5 C118.7,122.8 96.4,102.1 84.0,88.0 C71.6,73.9 65.3,58.7 61.6,52.8","pb":"M373.6,335.5 C375.1,338.2 380.7,345.9 382.4,352.0 C384.1,358.1 385.6,365.4 384.0,371.8 C382.4,378.2 374.7,387.4 372.8,390.5","bs":"M372.8,390.5 C372.3,392.0 370.9,396.6 369.6,399.3 C368.3,402.1 365.6,405.7 364.8,407.0","tb":"M624.0,382.8 C622.1,385.0 616.3,391.1 612.8,396.0 C609.3,400.9 604.8,409.8 603.2,412.5","bg":"M603.2,412.5 C600.4,415.1 592.1,423.7 586.4,427.9 C580.7,432.1 571.7,436.1 568.8,437.8","red":"M624.0,382.8 C626.7,385.9 636.4,394.4 640.0,401.5 C643.6,408.6 644.7,421.7 645.6,425.7","kpb":"M373.6,335.5 C373.9,338.2 374.8,345.9 375.2,352.0 C375.6,358.1 376.4,365.4 376.0,371.8 C375.6,378.2 373.3,387.4 372.8,390.5","kbs":"M372.8,390.5 C370.8,391.4 362.1,393.2 360.8,396.0 C359.5,398.8 364.1,405.2 364.8,407.0","kmain":"M373.6,335.5 C378.9,331.8 391.9,317.2 405.6,313.5 C419.3,309.8 442.9,310.6 456.0,313.5 C469.1,316.4 472.0,326.0 484.0,331.1 C496.0,336.2 513.9,341.9 528.0,344.3 C542.1,346.7 553.9,342.6 568.8,345.4 C583.7,348.1 608.4,354.6 617.6,360.8 C626.8,367.0 622.9,379.1 624.0,382.8","kred":"M624.0,382.8 C628.0,385.0 644.4,388.9 648.0,396.0 C651.6,403.1 646.0,420.8 645.6,425.7","kgug":"M624.0,382.8 C622.7,389.6 625.2,414.3 616.0,423.5 C606.8,432.7 576.7,435.4 568.8,437.8","xs":"M364.8,407.0 L379.2,453.2","xr":"M645.6,425.7 L702.4,442.2","xg":"M568.8,437.8 L579.2,475.2","cap":[[369,442,"15 X 100","end","land"],[684,428,"15 X 100","middle","land"],[300,330,"20 X 10","middle","sea"]],"n":{"pot":[373.6,335.5],"tbs":[624.0,382.8],"sar":[364.8,407.0],"bat":[372.8,390.5],"kut":[456.0,322.3],"kha":[528.0,353.1],"gor":[568.8,354.2],"bol":[603.2,412.5],"red":[645.6,425.7],"gug":[568.8,437.8],"soc":[217.6,177.1],"nov":[61.6,52.8]},"ctx":{"zug":[389.6,295.9],"ozu":[400.0,360.8],"akh":[478.4,391.6],"tel":[677.6,360.8],"ste":[611.2,279.4],"vla":[614.4,239.8]},"l":{"sea":[200.0,324.5],"ge":[508.0,283.8],"ru":[416.0,192.5],"tr":[428.0,464.2],"am":[628.0,475.2],"az":[712.0,464.2]}};
+L.ka.x={nv:['ქსელი','კომპანია','სერვისები','ინდუსტრიები','პროექტები','ჯგუფი'],ct:'კონტაქტი',map:'ინტერაქტიული ქსელის რუკა',pe:'პროექტები',pt:'ორი პროექტი, რომელმაც ქსელი შექმნა',k1:'ეროვნული მაგისტრალი',k2:'საერთაშორისო კავშირი',g1:'ეროვნული ქსელი',g2:'შავი ზღვა · წყალქვეშა კაბელი',s:'ძებნა: წერტილის სახელი',nores:'წერტილი ვერ მოიძებნა',cn:['საქართველო','რუსეთი','თურქეთი','სომხეთი','აზერბაიჯანი'],zi:'გადიდება',zo:'დაპატარავება',zr:'საწყისი ხედი'};
+L.en.x={nv:['Network','Company','Services','Industries','Projects','Group'],ct:'Contact',map:'Interactive network map',pe:'Projects',pt:'Two projects that built the network',k1:'National backbone',k2:'International connectivity',g1:'National network',g2:'Black Sea · submarine cable',s:'Search PoP by name',nores:'No point found',cn:['GEORGIA','RUSSIA','TÜRKIYE','ARMENIA','AZERBAIJAN'],zi:'Zoom in',zo:'Zoom out',zr:'Reset view'};
+L.ru.x={nv:['Сеть','Компания','Услуги','Отрасли','Проекты','Группа'],ct:'Контакты',map:'Интерактивная карта сети',pe:'Проекты',pt:'Два проекта, создавшие сеть',k1:'Национальная магистраль',k2:'Международная связь',g1:'Национальная сеть',g2:'Чёрное море · подводный кабель',s:'Поиск точки по названию',nores:'Точка не найдена',cn:['ГРУЗИЯ','РОССИЯ','ТУРЦИЯ','АРМЕНИЯ','АЗЕРБАЙДЖАН'],zi:'Увеличить',zo:'Уменьшить',zr:'Исходный вид'};
+
+var NP={ka:{t:'ქვეყნის შიდა კვანძი (In-Country)',bat:'ბათუმი',kut:'ქუთაისი',kha:'ხაშური',gor:'გორი',bol:'ბოლნისი',g:'სასაზღვრო კარიბჭე'},en:{t:'In-country PoP',bat:'Batumi',kut:'Kutaisi',kha:'Khashuri',gor:'Gori',bol:'Bolnisi',g:'Border gateway'},ru:{t:'Внутренний узел (In-Country)',bat:'Батуми',kut:'Кутаиси',kha:'Хашури',gor:'Гори',bol:'Болниси',g:'Пограничный шлюз'}};
+Object.keys(NP).forEach(function(l){var v=NP[l],p=L[l].nw.p;['bat','kut','kha','gor','bol'].forEach(function(k){p[k]=[v[k],v.t,'','']});p.sar[1]=v.g+' · TR/GEO';p.pot[1]=v.g+' · RUSS/GEO';p.gug[1]=v.g+' · GEO/AM';p.red[1]=v.g+' · GEO/AZ'});
+L.ka.nw.l='„საქართველოს ოპტიკური მაგისტრალი“: საქალაქთაშორისო და საერთაშორისო (Cross-Border) მარშრუტები კვანძების (PoP) მიხედვით. RTD: 5–7 ms, SLA: 99.89%. აირჩიეთ ორი წერტილი და ააწყვეთ მოთხოვნა.';
+L.en.nw.l='The Georgian Optical Backbone: domestic and cross-border routes by node (PoP). RTD: 5–7 ms, SLA: 99.89%. Select two points to build an enquiry.';
+L.ru.nw.l='«Оптическая магистраль Грузии»: междугородные и международные (Cross-Border) маршруты по узлам (PoP). RTD: 5–7 ms, SLA: 99.89%. Выберите две точки и соберите запрос.';
+L.ka.nw.sp=[['ტექნოლოგია','DWDM, ოპტიკურ-ბოჭკოვანი მაგისტრალი'],['გამტარობა','10G / 100G / 400G+'],['მიმდინარე გამოყენებული ტევადობა','500 Gbps'],['აპარატურა','DWDM (BACK UP): ყველა კვანძზე, ბოლნისის გარდა'],['რეზერვირება','BACK UP (DARK FIBER): ყველა კვანძზე, ბოლნისის გარდა'],['RTD (ორმხრივი დაყოვნება)','5–7 ms'],['SLA','99.89%'],['მონიტორინგი','24/7 NOC']];
+L.en.nw.sp=[['Technology','DWDM, fiber-optic backbone'],['Capacity','10G / 100G / 400G+'],['Current capacity used','500 Gbps'],['Equipment','DWDM (BACK UP): on every PoP except Bolnisi'],['Redundancy','BACK UP (DARK FIBER): on every PoP except Bolnisi'],['RTD (round-trip delay)','5–7 ms'],['SLA','99.89%'],['Monitoring','24/7 NOC']];
+L.ru.nw.sp=[['Технология','DWDM, волоконно-оптическая магистраль'],['Пропускная способность','10G / 100G / 400G+'],['Текущая используемая ёмкость','500 Gbps'],['Оборудование','DWDM (BACK UP): на всех узлах, кроме Болниси'],['Резервирование','BACK UP (DARK FIBER): на всех узлах, кроме Болниси'],['RTD (задержка туда-обратно)','5–7 ms'],['SLA','99.89%'],['Мониторинг','NOC 24/7']];
+L.ka.x.lg2=['ქალაქის კვანძი (PoP)','სარეზერვო ხაზი (Back Up)'];L.en.x.lg2=['City PoP','Backup route (Back Up)'];L.ru.x.lg2=['Городской узел (PoP)','Резервная линия (Back Up)'];
+L.ka.eq.net='ქსელი';L.en.eq.net='Network';L.ru.eq.net='Сеть';
+L.ka.eq.dw='DWDM გამტარობა';L.ka.eq.pb='ფიზიკური რეზერვი';L.ka.eq.eqp='აღჭურვილობა';L.ka.eq.used='გამოყენებული ტევადობა';
+L.en.eq.dw='DWDM capacity';L.en.eq.pb='Physical backup';L.en.eq.eqp='Equipment';L.en.eq.used='Capacity used';
+L.ru.eq.dw='Ёмкость DWDM';L.ru.eq.pb='Физический резерв';L.ru.eq.eqp='Оборудование';L.ru.eq.used='Используемая ёмкость';
+L.ka.x.hl=['მომსახურების დონის გარანტია (SLA)','ორმხრივი დაყოვნება (RTD) ქსელში'];L.en.x.hl=['Service level guarantee (SLA)','Round-trip delay (RTD) across the network'];L.ru.x.hl=['Гарантированный уровень сервиса (SLA)','Задержка туда-обратно (RTD) в сети'];
+L.ka.mp={back:'უკან',svt:'აირჩიეთ სერვისი',svs:'არასავალდებულო',clr:'გასუფთავება',pick2:'აირჩიეთ რუკაზე ან სიიდან',filt:'რუკის ფილტრები',fshow:'ქსელი',bk:'სარეზერვო ხაზები',lgt:'აღნიშვნები',hint0:'აირჩიეთ წერტილი რუკაზე',ctx:{zug:'ზუგდიდი',ozu:'ოზურგეთი',akh:'ახალციხე',tel:'თელავი',ste:'სტეფანწმინდა',vla:'ვლადიკავკაზი',tra:'ტრაპიზონი'}};
+L.en.mp={back:'Back',svt:'Specify your service',svs:'Optional',clr:'Clear',pick2:'Select on the map or from the list',filt:'Map filters',fshow:'Network',bk:'Backup routes',lgt:'Legend',hint0:'Select a point on the map',ctx:{zug:'Zugdidi',ozu:'Ozurgeti',akh:'Akhaltsikhe',tel:'Telavi',ste:'Stepantsminda',vla:'Vladikavkaz',tra:'Trabzon'}};
+L.ru.mp={back:'Назад',svt:'Выберите услугу',svs:'Необязательно',clr:'Очистить',pick2:'Выберите на карте или из списка',filt:'Фильтры карты',fshow:'Сеть',bk:'Резервные линии',lgt:'Обозначения',hint0:'Выберите точку на карте',ctx:{zug:'Зугдиди',ozu:'Озургети',akh:'Ахалцихе',tel:'Телави',ste:'Степанцминда',vla:'Владикавказ',tra:'Трабзон'}};
+L.ka.sch={e:'FOPTNET NETWORK UPGRADE',t:'ქსელის სქემები',l:'პრეზენტაციის სქემები: საერთაშორისო და საქალაქთაშორისო ქსელი და ქსელის საერთო ტევადობა.',tabs:['საერთაშორისო ქსელი','საქალაქთაშორისო ქსელი','ქსელის ტევადობა'],h:['ფოპტნეტის საერთაშორისო ქსელი - CROSS BORDER CONNECTION','ფოპტნეტის საქალაქთაშორისო ქსელი - DOMESTIC NETWORK','TOTAL NETWORK CAPACITY'],lg:['ძირითადი ხაზი','სარეზერვო ხაზი (Back Up)','საერთაშორისო გასასვლელი','სერვისის მარშრუტი','DWDM კვანძი','სასაზღვრო კარიბჭე'],th:['POP','ფიზიკური რეზერვი (Physical Backup)','აღჭურვილობა (Equipment)','მიმდინარე გამოყენებული ტევადობა – 500 Gbps'],note:'ფერით მონიშნული მნიშვნელობები გამოყოფილია ისე, როგორც პრეზენტაციაშია.'};
+L.en.sch={e:'FOPTNET NETWORK UPGRADE',t:'Network schemes',l:'Schemes from the presentation: cross-border and domestic network, and total network capacity.',tabs:['Cross Border','Domestic network','Total capacity'],h:['Foptnet international network - CROSS BORDER CONNECTION','Foptnet domestic network - DOMESTIC NETWORK','TOTAL NETWORK CAPACITY'],lg:['Primary route','Backup route (Back Up)','Cross-border link','Service route','DWDM node','Border gateway'],th:['POP','Physical backup','Equipment','Current capacity used – 500 Gbps'],note:'Highlighted values are marked as in the presentation.'};
+L.ru.sch={e:'FOPTNET NETWORK UPGRADE',t:'Схемы сети',l:'Схемы из презентации: международная и междугородная сеть, общая ёмкость сети.',tabs:['Международная сеть','Междугородная сеть','Ёмкость сети'],h:['Международная сеть Фоптнет - CROSS BORDER CONNECTION','Междугородная сеть Фоптнет - DOMESTIC NETWORK','TOTAL NETWORK CAPACITY'],lg:['Основная линия','Резервная линия (Back Up)','Международный выход','Сервисный маршрут','Узел DWDM','Пограничный шлюз'],th:['POP','Физический резерв','Оборудование','Текущая используемая ёмкость – 500 Gbps'],note:'Выделенные значения отмечены так же, как в презентации.'};
+var schTab=0,schOpen=false;
+var CFG=window.FOPTNET_CONFIG||{};
+L.ka.c.sending='იგზავნება…';L.ka.c.sent='გმადლობთ! მოთხოვნა მიღებულია, მალე დაგიკავშირდებით.';L.ka.c.fail='გაგზავნა ვერ მოხერხდა. სცადეთ თავიდან ან დაგვიკავშირდით პირდაპირ.';
+L.en.c.sending='Sending…';L.en.c.sent='Thank you! Your request has been received. We will be in touch shortly.';L.en.c.fail='Sending failed. Please try again or contact us directly.';
+L.ru.c.sending='Отправка…';L.ru.c.sent='Спасибо! Запрос получен, мы скоро свяжемся с вами.';L.ru.c.fail='Не удалось отправить. Попробуйте ещё раз или свяжитесь с нами напрямую.';
+L.ka.sch.op='სქემების ნახვა';L.ka.sch.cl='დახურვა';L.en.sch.op='Show schemes';L.en.sch.cl='Close';L.ru.sch.op='Показать схемы';L.ru.sch.cl='Свернуть';
+L.ka.rd={m:'მეტის ნახვა',l:'ნაკლები',all:'ყველა პარამეტრი',few:'ნაკლები პარამეტრი',sol:'გადაწყვეტა'};L.en.rd={m:'Read more',l:'Show less',all:'All parameters',few:'Fewer parameters',sol:'Solution'};L.ru.rd={m:'Подробнее',l:'Свернуть',all:'Все параметры',few:'Меньше параметров',sol:'Решение'};
+var CAPT=[['sar','TR/GEO BORDER',1,1,'15 X 100',{c:1}],['bat','In-Country',1,1,'1 X 100',{}],['pot','RUSS/GEO BORDER',1,1,'3 X 100 (20 X 10)',{}],['kut','In-Country',1,1,'1 X 100',{}],['kha','In-Country',1,1,'',{}],['gor','In-Country',1,1,'',{}],['tbs','In-Country',1,1,'3 X 100',{}],['bol','In-Country',0,0,'2 X 100 (20 X 10)',{}],['gug','GEO/AM BORDER',1,1,'10 X 100',{b:1}],['red','GEO/AZ BORDER',1,1,'15 X 100',{b:1,c:1}]];
+var SC2={vb:'0 100 1240 600',
+ pri:[[264,464.7,323.7,402],[342.2,375.3,344.7,294.7],[370.4,294.7,861,373],[826.3,448.3,884.9,375.2],[756,528.9,814.7,455.8],[895.3,387.1,994.5,455.8]],
+ bk:[[335.7,414.8,258.4,499.2],[358.6,299.8,356.7,371],[860.9,350.4,358.8,269.4],[789.9,539.4,901.8,401.5],[910,371.2,1017.4,445.5]],
+ ex:[[313.1,265.9,108.1,173.8,'20 X 10'],[212.8,491.6,11.1,416.8,'15 X 100'],[1048.5,484.6,1226.9,570.2,'15 X 100'],[741.4,549.3,895.3,653.4,'']],
+ cube:[[214,465,80,'sar'],[316,228,80,'pot'],[849,319,80,'tbs'],[992,424,80,'red'],[717,490,80,'gug'],[807,421,58,'bol'],[302,363,58,'bat']],
+ lab:[['pot',304,282,'end'],['bat',290,385,'end'],['sar',216,566,'start'],['tbs',848,306,'end'],['bol',794,428,'end'],['gug',705,524,'end'],['red',1078,412,'start']],
+ svc:[],pills:[]};
+var SC3={vb:'30 130 1030 440',
+ pri:[[217.9,238.3,969.5,370.6],[186.7,330.5,189.1,249.8],[937.1,472,995.8,399]],
+ bk:[[970.1,352.6,212.6,214.4],[203,255,201.1,326.1]],
+ ex:[],
+ svc:[[[968.8,336.9],[510.6,336.9],[510.6,221.2],[215,221.2]],[[968.8,369.2],[766.5,369.2],[766.5,260.8],[488,260.8]],[[205,346.1],[595.9,346.1],[595.9,399.1],[965.7,399.1]],[[156.9,241.1],[87.3,241.1],[87.3,486.9],[898.9,486.9]]],
+ svcBoth:[0,0,0,1],
+ pills:[[362,221.2,'1 X 100',0],[867,369.2,'1 X 100',1],[781,399.1,'1 X 100',2],[493,486.9,'2 X 100',3],[110,210,'20 X 10',3],[937,532,'20 X 10',3]],
+ cube:[[157,205,58,'pot'],[147,318,58,'bat'],[430,233,58,'kut'],[597,262,58,'kha'],[774,289,58,'gor'],[970,338,58,'tbs'],[908,450,58,'bol']],
+ lab:[['pot',222,262,'start'],['bat',213,368,'start'],['kut',460,196,'start'],['kha',607,240,'start'],['gor',786,268,'start'],['tbs',1010,300,'end'],['bol',896,500,'end']]};
+var SGATE={sar:1,pot:1,gug:1,red:1};
+function sRow(id){for(var i=0;i<CAPT.length;i++)if(CAPT[i][0]===id)return CAPT[i];return null}
+function sCtr(c){return [c[0]+c[2]/2,c[1]+c[2]/2]}
+function sNear(S,x,y){var b=null,bd=1e9;S.cube.forEach(function(c){var p=sCtr(c),d=(p[0]-x)*(p[0]-x)+(p[1]-y)*(p[1]-y);if(d<bd){bd=d;b=c[3]}});return b}
+function sPts(a){return a.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' ')}
+function sPart(d,len,color,core,dir,delay,r){var dur=Math.max(1.6,len/150).toFixed(2),kp=dir<0?' keyPoints="1;0" keyTimes="0;1" calcMode="linear"':'';
+ return '<g class="pt"><circle r="'+(r*2.6)+'" fill="'+color+'" opacity=".28"><animateMotion dur="'+dur+'s" begin="'+delay+'s" repeatCount="indefinite" path="'+d+'"'+kp+'/></circle><circle r="'+r+'" fill="'+core+'"><animateMotion dur="'+dur+'s" begin="'+delay+'s" repeatCount="indefinite" path="'+d+'"'+kp+'/></circle></g>'}
+function sCube(c,i,id,n){
+ var x=c[0],y=c[1],s=c[2],k=c[3],p=sCtr(c),cx=x+s/2,gate=SGATE[k],hc=gate?'url(#hO'+id+')':'url(#hC'+id+')',rc=gate?'#FF7A00':'#00D4FF',delay=(0.55+i*0.09).toFixed(2),h=s/2;
+ var T=[cx,y],UR=[x+s,y+s*.25],LR=[x+s,y+s*.75],B=[cx,y+s],LL=[x,y+s*.75],UL=[x,y+s*.25],C=[cx,y+s*.5];
+ var o='<g class="mnode el" data-id="'+k+'" tabindex="0" role="button" aria-label="'+n.p[k][0]+'" style="--d:'+delay+'s">';
+ o+='<circle class="halo" cx="'+cx+'" cy="'+(p[1]+4)+'" r="'+(s*.95)+'" fill="'+hc+'"/><circle class="ring" cx="'+cx+'" cy="'+p[1]+'" r="'+(s*.62)+'" stroke="'+rc+'"/><g class="pop">';
+ o+='<ellipse cx="'+cx+'" cy="'+(y+s+5)+'" rx="'+(s*.5)+'" ry="'+(s*.13)+'" fill="#000" opacity=".45" filter="url(#bl'+id+')"/><ellipse cx="'+cx+'" cy="'+(y+s+3)+'" rx="'+(s*.42)+'" ry="'+(s*.09)+'" fill="'+rc+'" opacity=".35" filter="url(#bl'+id+')"/><g class="front">';
+ o+='<polygon points="'+sPts([UL,C,B,LL])+'" fill="url(#gL'+id+')"/><polygon points="'+sPts([C,UR,LR,B])+'" fill="url(#gR'+id+')"/><polygon points="'+sPts([T,UR,C,UL])+'" fill="url(#gT'+id+')"/>';
+ o+='<g transform="matrix(1,.5,0,1,'+x+','+(y+s*.25)+')">';
+ var bh=h*.11,gap=h*.075,y0=h*.44;
+ for(var j=0;j<3;j++){var yy=y0+j*(bh+gap);o+='<rect x="'+(h*.12)+'" y="'+yy.toFixed(1)+'" width="'+(h*.76)+'" height="'+bh.toFixed(1)+'" rx="'+(bh/2).toFixed(1)+'" fill="#061642" fill-opacity=".55" stroke="#fff" stroke-opacity=".08"/><circle class="led" cx="'+(h*.2)+'" cy="'+(yy+bh/2).toFixed(1)+'" r="'+(bh*.28).toFixed(1)+'" fill="'+(j===0?rc:'#00D4FF')+'" style="animation-delay:'+(j*.4+i*.13).toFixed(2)+'s"/><rect x="'+(h*.32)+'" y="'+(yy+bh*.38).toFixed(1)+'" width="'+(h*(.2+j*.12)).toFixed(1)+'" height="'+(bh*.24).toFixed(1)+'" rx="1" fill="#fff" opacity=".22"/>'}
+ o+='<text x="'+(h*.12)+'" y="'+(h*.3)+'" style="font:700 '+(s*.105).toFixed(1)+'px var(--font);fill:#fff;letter-spacing:.08em;opacity:.92">DWDM</text></g>';
+ o+='<g transform="matrix(1,-.5,0,1,'+cx+','+(y+s*.5)+')" opacity=".5">';
+ for(var v=0;v<4;v++)o+='<rect x="'+(h*(.2+v*.17)).toFixed(1)+'" y="'+(h*.35)+'" width="'+(h*.06).toFixed(1)+'" height="'+(h*.38)+'" rx="'+(h*.03).toFixed(1)+'" fill="#000" fill-opacity=".45"/>';
+ o+='</g>';
+ var q=.42,em=[[cx,y+s*.25*(1-q)],[cx+h*q,y+s*.25],[cx,y+s*.25+s*.25*q],[cx-h*q,y+s*.25]];
+ o+='<polygon class="core" points="'+sPts(em)+'" fill="'+rc+'" fill-opacity=".22" stroke="'+rc+'" stroke-width="1.4" filter="url(#gw'+id+')"/><circle cx="'+cx+'" cy="'+(y+s*.25)+'" r="'+(s*.035)+'" fill="#fff"/>';
+ o+='<polyline points="'+sPts([UL,T,UR])+'" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="1.2" stroke-linejoin="round"/><polyline points="'+sPts([UL,C,UR])+'" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/>';
+ o+='<line x1="'+C[0]+'" y1="'+C[1]+'" x2="'+B[0]+'" y2="'+B[1]+'" stroke="'+rc+'" stroke-width="1.6" stroke-opacity=".95" filter="url(#gw'+id+')"/><polygon points="'+sPts([T,UR,LR,B,LL,UL])+'" fill="none" stroke="#9FC4FF" stroke-opacity=".35" stroke-width="1" stroke-linejoin="round"/>';
+ return o+'</g></g></g>';
+}
+function sLab(l,n){var k=l[0],nm=n.p[k][0],r=sRow(k),cap=r&&r[4],parts=k==='red'?nm.split(' '):[nm],o='<g class="fadein el" data-for="'+k+'" style="--d:1.25s">';
+ o+='<text class="city" x="'+l[1]+'" y="'+l[2]+'" text-anchor="'+l[3]+'">'+parts.map(function(p,i){return '<tspan x="'+l[1]+'" dy="'+(i?20:0)+'">'+p+'</tspan>'}).join('')+'</text>';
+ if(cap)o+='<text class="cap" x="'+l[1]+'" y="'+(l[2]+(parts.length-1)*20+17)+'" text-anchor="'+l[3]+'">DWDM '+cap+'</text>';
+ return o+'</g>'}
+function sPill(x,y,t,delay,own){var w=t.length*7.3+26;return '<g class="pill el" data-own="'+(own||'')+'" style="--d:'+delay+'s"><rect x="'+(x-w/2)+'" y="'+(y-12)+'" width="'+w+'" height="24" rx="12"/><text x="'+x+'" y="'+(y+4.2)+'" text-anchor="middle">'+t+'</text></g>'}
+function scheme(S,n,id){
+ var o='<svg class="mx" viewBox="'+S.vb+'" role="img" aria-label="'+id+'"><defs>'+
+ '<radialGradient id="hC'+id+'"><stop offset="0" stop-color="#00D4FF" stop-opacity=".55"/><stop offset=".55" stop-color="#00D4FF" stop-opacity=".12"/><stop offset="1" stop-color="#00D4FF" stop-opacity="0"/></radialGradient>'+
+ '<radialGradient id="hO'+id+'"><stop offset="0" stop-color="#FF7A00" stop-opacity=".6"/><stop offset=".55" stop-color="#FF7A00" stop-opacity=".14"/><stop offset="1" stop-color="#FF7A00" stop-opacity="0"/></radialGradient>'+
+ '<linearGradient id="gT'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F9FF"/><stop offset=".55" stop-color="#C9DBFF"/><stop offset="1" stop-color="#8FB2F5"/></linearGradient>'+
+ '<linearGradient id="gL'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F66F0"/><stop offset=".6" stop-color="#1640B0"/><stop offset="1" stop-color="#0B2A6F"/></linearGradient>'+
+ '<linearGradient id="gR'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#143A9C"/><stop offset="1" stop-color="#06143F"/></linearGradient>'+
+ '<filter id="gw'+id+'" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'+
+ '<filter id="bl'+id+'" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>'+
+ '<pattern id="sg'+id+'" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#fff" opacity=".09"/></pattern>'+
+ '<marker id="mO'+id+'" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#FF7A00"/></marker>'+
+ '</defs><rect class="bgd" x="-200" y="0" width="1600" height="900" fill="url(#sg'+id+')"/>';
+ S.ex.forEach(function(e,k){var a=sNear(S,e[0],e[1]),d='M'+e[0]+','+e[1]+' L'+e[2]+','+e[3],L=Math.hypot(e[2]-e[0],e[3]-e[1]);
+  o+='<g class="ex el fadein" data-a="'+a+'" style="--d:'+(1.1+k*.08).toFixed(2)+'s"><line x1="'+e[0]+'" y1="'+e[1]+'" x2="'+e[2]+'" y2="'+e[3]+'"/>'+sPart(d,L,'#00D4FF','#E6FBFF',-1,1.9+k*.3,2.6)+sPart(d,L,'#FF7A00','#FFE1C2',1,2.4+k*.3,2.6)+'</g>';
+  if(e[4]){var mx=(e[0]+e[2])/2,my=(e[1]+e[3])/2,dx=e[2]-e[0],dy=e[3]-e[1],ln=Math.hypot(dx,dy),nx=-dy/ln*22,ny=dx/ln*22;if(ny>0){nx=-nx;ny=-ny}o+=sPill(mx+nx,my+ny,'⇄ '+e[4],(1.6+k*.12).toFixed(2),a)}});
+ S.bk.forEach(function(b,k){o+='<g class="bk el fadein" data-a="'+sNear(S,b[0],b[1])+'" data-b="'+sNear(S,b[2],b[3])+'" style="--d:'+(1.0+k*.06).toFixed(2)+'s"><line x1="'+b[0]+'" y1="'+b[1]+'" x2="'+b[2]+'" y2="'+b[3]+'"/></g>'});
+ S.svc.forEach(function(pts,k){var d='M'+pts.map(function(p){return p[0]+','+p[1]}).join(' L'),L=0,both=S.svcBoth[k],dl=(1.05+k*.12).toFixed(2);for(var q=1;q<pts.length;q++)L+=Math.hypot(pts[q][0]-pts[q-1][0],pts[q][1]-pts[q-1][1]);
+  o+='<g class="svc el" data-a="'+sNear(S,pts[0][0],pts[0][1])+'" data-b="'+sNear(S,pts[pts.length-1][0],pts[pts.length-1][1])+'" data-r="'+k+'"><path class="l-glow draw" pathLength="1" d="'+d+'" style="--d:'+dl+'s"/><path class="l-core draw" pathLength="1" d="'+d+'" marker-end="url(#mO'+id+')"'+(both?' marker-start="url(#mO'+id+')"':'')+' style="--d:'+dl+'s"/>'+sPart(d,L,'#FF7A00','#FFF1E5',1,2.1+k*.35,3)+(both?sPart(d,L,'#FF7A00','#FFF1E5',-1,2.6+k*.35,3):'')+'</g>'});
+ S.pri.forEach(function(p,k){var d='M'+p[0]+','+p[1]+' L'+p[2]+','+p[3],L=Math.hypot(p[2]-p[0],p[3]-p[1]),dl=(0.15+k*.1).toFixed(2);
+  o+='<g class="pri el" data-a="'+sNear(S,p[0],p[1])+'" data-b="'+sNear(S,p[2],p[3])+'"><path class="l-glow draw" pathLength="1" d="'+d+'" style="--d:'+dl+'s"/><path class="l-core draw" pathLength="1" d="'+d+'" style="--d:'+dl+'s"/>'+sPart(d,L,'#00D4FF','#ffffff',1,1.5+k*.25,2.8)+(L>300?sPart(d,L,'#00D4FF','#ffffff',-1,2.2+k*.25,2.4):'')+'</g>'});
+ S.cube.forEach(function(c,k){o+=sCube(c,k,id,n)});
+ S.lab.forEach(function(l){o+=sLab(l,n)});
+ S.pills.forEach(function(p,k){o+=sPill(p[0],p[1],p[2],(1.55+k*.1).toFixed(2),'r'+p[3])});
+ return o+'</svg>';
+}
+function schPlay(){$$('.sch-fig svg.mx').forEach(function(s){s.classList.remove('play')});schHide();if(!schOpen)return;var s=document.querySelector('#schp'+schTab+' svg.mx');if(!s)return;void s.getBoundingClientRect();s.classList.add('play')}
+function schHide(){$$('.sch-tip').forEach(function(t){t.classList.remove('on')});$$('svg.mx').forEach(function(s){s.classList.remove('dim-on');s.querySelectorAll('.hl').forEach(function(e){e.classList.remove('hl')})})}
+function schFocus(nd){
+ var svg=nd.closest('svg'),stage=nd.closest('.sch-stage'),tip=stage.querySelector('.sch-tip'),k=nd.dataset.id,routes={},c=L[lang].sch,n=L[lang].nw,r=sRow(k);
+ schHide();svg.classList.add('dim-on');
+ svg.querySelectorAll('.el').forEach(function(e){var on=e.dataset.id===k||e.dataset.for===k||e.dataset.a===k||e.dataset.b===k;if(on&&e.dataset.r!==undefined)routes['r'+e.dataset.r]=1;if(on)e.classList.add('hl')});
+ svg.querySelectorAll('.el').forEach(function(e){if(e.dataset.own&&(routes[e.dataset.own]||e.dataset.own===k))e.classList.add('hl');if(e.classList.contains('mnode')&&(svg.querySelector('.hl[data-a="'+e.dataset.id+'"][data-b="'+k+'"]')||svg.querySelector('.hl[data-b="'+e.dataset.id+'"][data-a="'+k+'"]')))e.classList.add('hl')});
+ tip.innerHTML='<b>'+n.p[k][0]+'</b><small>'+r[1]+'</small><dl><dt>DWDM</dt><dd class="o">'+(r[4]||'—')+'</dd><dt>'+c.th[1]+'</dt><dd>'+(r[2]?'BACK UP (DARK FIBER)':'—')+'</dd><dt>'+c.th[2]+'</dt><dd>'+(r[3]?'DWDM (BACK UP)':'—')+'</dd></dl>';
+ var sr=stage.getBoundingClientRect(),nr=nd.querySelector('.front').getBoundingClientRect(),x=nr.right-sr.left+14,y=nr.top-sr.top-10,tw=tip.offsetWidth||260,th=tip.offsetHeight||150;
+ if(x+tw>sr.width-8)x=nr.left-sr.left-tw-14;if(x<8)x=8;if(y<8)y=8;if(y+th>sr.height-8)y=sr.height-th-8;
+ tip.style.left=x+'px';tip.style.top=y+'px';tip.classList.add('on');
+}
+document.addEventListener('mouseover',function(e){var nd=e.target.closest&&e.target.closest('.mnode');if(nd)schFocus(nd)});
+document.addEventListener('mouseout',function(e){var nd=e.target.closest&&e.target.closest('.mnode');if(nd&&!nd.contains(e.relatedTarget))schHide()});
+document.addEventListener('focusin',function(e){var nd=e.target.closest&&e.target.closest('.mnode');if(nd)schFocus(nd)});
+document.addEventListener('focusout',function(e){if(e.target.closest&&e.target.closest('.mnode'))schHide()});
+document.addEventListener('click',function(e){var nd=e.target.closest&&e.target.closest('.mnode');if(nd){schFocus(nd);return}if(document.querySelector('svg.mx.dim-on'))schHide()});
+function schemes(t){
+ var c=t.sch,n=t.nw,lg=function(items){return '<div class="sch-lg">'+items.map(function(i){return '<span><i class="'+i[0]+'"></i>'+i[1]+'</span>'}).join('')+'</div>'};
+ var tbl='<div class="cap-wrap"><table class="capt"><thead><tr>'+c.th.map(function(h){return '<th scope="col">'+h+'</th>'}).join('')+'</tr></thead><tbody>'+
+  CAPT.map(function(r){var m=r[5],df=r[2]?'BACK UP (DARK FIBER)':'-',dw=r[3]?'DWDM (BACK UP)':'-';return '<tr><td>'+n.p[r[0]][0]+'<small>'+r[1]+'</small></td><td>'+(m.b?'<mark>'+df+'</mark>':df)+'</td><td>'+dw+'</td><td>'+(r[4]?(m.c?'<mark>'+r[4]+'</mark>':r[4]):'')+'</td></tr>'}).join('')+'</tbody></table></div><p class="cap-note">'+c.note+'</p>';
+ return '<div class="glass panel sch'+(schOpen?' open':'')+'" id="sch"><div class="eyebrow">'+c.e+'</div><div class="sch-head" data-schtog="1"><div><h3>'+c.t+'</h3><p>'+c.l+'</p></div><button type="button" class="sch-tg" aria-expanded="'+schOpen+'" aria-controls="schBody">'+(schOpen?c.cl:c.op)+'<i aria-hidden="true"></i></button></div><div class="sch-body" id="schBody"><div>'+
+  '<div class="sch-tabs" role="tablist">'+c.tabs.map(function(x,i){return '<button type="button" role="tab" id="scht'+i+'" aria-controls="schp'+i+'" aria-selected="'+(i===schTab)+'" data-sch="'+i+'">'+x+'</button>'}).join('')+'</div>'+
+  '<div class="sch-pane" role="tabpanel" id="schp0" aria-labelledby="scht0"'+(schTab===0?'':' hidden')+'><h4>'+c.h[0]+'</h4><div class="sch-stage"><div class="sch-fig">'+scheme(SC2,n,'x2')+'</div><div class="sch-tip" role="status"></div></div>'+lg([['',c.lg[0]],['bk',c.lg[1]],['ex',c.lg[2]],['gw',c.lg[5]],['cb',c.lg[4]]])+'</div>'+
+  '<div class="sch-pane" role="tabpanel" id="schp1" aria-labelledby="scht1"'+(schTab===1?'':' hidden')+'><h4>'+c.h[1]+'</h4><div class="sch-stage"><div class="sch-fig">'+scheme(SC3,n,'x3')+'</div><div class="sch-tip" role="status"></div></div>'+lg([['',c.lg[0]],['bk',c.lg[1]],['sv',c.lg[3]],['gw',c.lg[5]],['cb',c.lg[4]]])+'</div>'+
+  '<div class="sch-pane" role="tabpanel" id="schp2" aria-labelledby="scht2"'+(schTab===2?'':' hidden')+'><h4>'+c.h[2]+'</h4>'+tbl+'</div></div></div></div>';
+}
+var DATA={sar:{cap:'15 X 100',df:1,dw:1},bat:{cap:'1 X 100',df:1,dw:1},pot:{cap:'3 X 100 (20 X 10)',df:1,dw:1},kut:{cap:'1 X 100',df:1,dw:1},kha:{cap:'',df:1,dw:1},gor:{cap:'',df:1,dw:1},tbs:{cap:'3 X 100',df:1,dw:1},bol:{cap:'2 X 100 (20 X 10)',df:0,dw:0},gug:{cap:'10 X 100',df:1,dw:1},red:{cap:'15 X 100',df:1,dw:1}};
+var REDUCED=false;try{REDUCED=matchMedia('(prefers-reduced-motion:reduce)').matches}catch(e){}
+
+var IDS=['network','about','services','industries','projects','group'];
+var NODES=[
+ {id:'pot',kind:'gate',seg:'both',dx:-14,dy:6,a:'end'},
+ {id:'bat',kind:'city',seg:'land',dx:14,dy:6,a:'start'},
+ {id:'sar',kind:'gate',seg:'land',dx:14,dy:16,a:'start'},
+ {id:'kut',kind:'city',seg:'land',dx:0,dy:22,a:'middle'},
+ {id:'kha',kind:'city',seg:'land',dx:0,dy:-18,a:'middle'},
+ {id:'gor',kind:'city',seg:'land',dx:0,dy:24,a:'middle'},
+ {id:'tbs',kind:'core',seg:'land',dx:17,dy:-9,a:'start'},
+ {id:'bol',kind:'city',seg:'land',dx:-13,dy:-2,a:'end'},
+ {id:'red',kind:'gate',seg:'land',dx:14,dy:-16,a:'start'},
+ {id:'gug',kind:'gate',seg:'land',dx:-14,dy:20,a:'end'}
+];
+NODES.forEach(function(d){d.x=G.n[d.id][0];d.y=G.n[d.id][1]});
+var ORDER=['tbs','pot','bat','kut','kha','gor','bol','sar','gug','red'];
+var ZL=[1,1.6,2.4];
+function baseVB(){return (window.innerWidth||1200)<=700?[300,235,480,310]:[80,160,720,320]}
+var VB=baseVB();
+
+var curVB=null,raf=0,io=null;
+var lang='ka',seg='all',epA=null,epB=null,bw=0,eqSvc='',msgKey='',query='',zi=0,cx=0,cy=0,active=null,showBk=true,lastKey='';
+cx=VB[0]+VB[2]/2;cy=VB[1]+VB[3]/2;
+try{var sv=localStorage.getItem('foptnet-lang');if(sv&&L[sv])lang=sv}catch(e){}
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function glow(a){return '<div class="field" aria-hidden="true">'+a.map(function(g){return '<div class="glow" style="width:'+g[0]+'px;height:'+g[0]+'px;'+g[1]+';background:'+g[2]+'"></div>'}).join('')+'</div>'}
+var CY='rgba(0,212,255,.34)',BL='rgba(11,42,111,.15)';
+function nodeById(id){return NODES.filter(function(d){return d.id===id})[0]}
+
+/* ---------- map ---------- */
+function mapSvg(t){
+ var n=t.nw,x=t.x,LAND=['pMain','rPB','rBS','rTB','rBG','rRed'],BK=['kMain','kPB','kBS','kRed','kGug'],XB=['xs','xr','xg'];
+ var o='<svg id="mapSvg" viewBox="200 150 600 360" role="img" aria-label="'+x.map+'"><defs><radialGradient id="gl"><stop offset="0" stop-color="#00D4FF" stop-opacity=".85"/><stop offset=".55" stop-color="#00D4FF" stop-opacity=".28"/><stop offset="1" stop-color="#00D4FF" stop-opacity="0"/></radialGradient>'+
+ '<marker id="arw" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M1,1 L8,5 L1,9" fill="none" stroke="#0B2A6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>'+
+ '<path id="pSea" d="'+G.subm+'"/><path id="pMain" d="'+G.main+'"/><path id="rPB" d="'+G.pb+'"/><path id="rBS" d="'+G.bs+'"/><path id="rTB" d="'+G.tb+'"/><path id="rBG" d="'+G.bg+'"/><path id="rRed" d="'+G.red+'"/>'+
+ '<path id="kMain" d="'+G.kmain+'"/><path id="kPB" d="'+G.kpb+'"/><path id="kBS" d="'+G.kbs+'"/><path id="kRed" d="'+G.kred+'"/><path id="kGug" d="'+G.kgug+'"/></defs>'+
+ '<rect class="g-land" x="-300" y="-200" width="1500" height="1000"/><path class="g-sea" d="'+G.sea+'"/><path class="g-geo" d="'+G.geo+'"/>'+
+ '<text class="g-seal" x="'+G.l.sea[0]+'" y="'+G.l.sea[1]+'">'+n.sea+'</text>'+
+ ['ge','ru','tr','am','az'].map(function(k,i){return '<text class="g-cn'+(i===0?' me':'')+'" text-anchor="middle" x="'+G.l[k][0]+'" y="'+G.l[k][1]+'">'+x.cn[i]+'</text>'}).join('')+
+ Object.keys(G.ctx).map(function(k){var c=G.ctx[k],up=k==='tel';return '<g class="ctx" aria-hidden="true"><circle cx="'+c[0]+'" cy="'+c[1]+'" r="2.2"/><text x="'+(up?c[0]:c[0]+5)+'" y="'+(up?c[1]-6:c[1]+4)+'"'+(up?' text-anchor="middle"':'')+'>'+t.mp.ctx[k]+'</text></g>'}).join('')+
+ BK.map(function(id){return '<use href="#'+id+'" class="rt bk" data-seg="land"/>'}).join('')+
+ '<use href="#pSea" class="rt sea-c" data-seg="sea"/><use href="#pSea" class="rt sea" data-seg="sea"/>'+
+ LAND.map(function(id){return '<use href="#'+id+'" class="rt land" data-seg="land"/>'}).join('')+
+ XB.map(function(k){return '<path class="rt land" data-seg="land" d="'+G[k]+'" marker-end="url(#arw)"/>'}).join('')+
+ '<use href="#pSea" class="flow fs" data-seg="sea"/>'+
+ LAND.map(function(id){return '<use href="#'+id+'" class="flow fl" data-seg="land"/>'}).join('')+
+ XB.map(function(k){return '<path class="flow fl" data-seg="land" d="'+G[k]+'"/>'}).join('')+
+ '<g data-seg="sea"><circle class="sdot" cx="'+G.n.soc[0]+'" cy="'+G.n.soc[1]+'" r="5"/><text class="slab" x="'+(G.n.soc[0]+11)+'" y="'+(G.n.soc[1]+4)+'">'+n.p.soc[0]+'</text><text class="slab sm" x="'+(G.n.soc[0]+11)+'" y="'+(G.n.soc[1]+19)+'">↖ '+n.p.nov[0]+'</text></g>'+
+ '<circle class="pulse" r="4.5" fill="#fff" stroke="#00D4FF" stroke-width="2.5"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#pSea"/></animateMotion></circle>'+
+ '<circle class="pulse" r="4.5" fill="#fff" stroke="#0B2A6F" stroke-width="2.5"><animateMotion dur="4.2s" repeatCount="indefinite"><mpath href="#pMain"/></animateMotion></circle>'+
+ '<path id="linkG" class="link-glow" d="" pathLength="1"/><path id="linkP" class="link" d="" pathLength="1"/>';
+ NODES.forEach(function(d){var p=n.p[d.id],r=d.kind==='core'?11:d.kind==='city'?7:9;
+  o+='<g class="mk" data-id="'+d.id+'" data-kind="'+d.kind+'" tabindex="0" role="button" aria-label="'+p[0]+'"><circle class="glowc" cx="'+d.x+'" cy="'+d.y+'" r="'+(d.kind==='city'?20:26)+'" fill="url(#gl)"/><circle class="rip" cx="'+d.x+'" cy="'+d.y+'" r="'+(r+2)+'"/><circle class="disc" cx="'+d.x+'" cy="'+d.y+'" r="'+r+'"/>'+
+  (d.kind==='gate'?'<rect class="in" x="'+(d.x-3.5)+'" y="'+(d.y-3.5)+'" width="7" height="7" transform="rotate(45 '+d.x+' '+d.y+')"/>':'<circle class="in" cx="'+d.x+'" cy="'+d.y+'" r="'+(d.kind==='core'?4.5:d.kind==='city'?2.6:3.5)+'"/>')+
+  '<text x="'+(d.x+d.dx)+'" y="'+(d.y+d.dy)+'" text-anchor="'+d.a+'">'+p[0]+'</text></g>'});
+ ['A','B'].forEach(function(k){o+='<g class="mtag" id="tag'+k+'" style="display:none"><g class="tg"><circle r="10"/><text text-anchor="middle" y="4.5">'+k+'</text></g></g>'});
+ return o+'</svg>';
+}
+function inSeg(d){return seg==='all'||d.seg==='both'||d.seg===seg}
+function match(d){return !query||L[lang].nw.p[d.id][0].toLowerCase().indexOf(query)>-1}
+function fx(el,c){if(!el||REDUCED)return;el.classList.remove(c);if(el.getBoundingClientRect)el.getBoundingClientRect();void el.offsetWidth;el.classList.add(c)}
+var PIN='<svg viewBox="0 0 24 24" fill="none" stroke="#0B2A6F" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+function chips(id){var d=DATA[id];if(!d)return '';function c(l,v,off){return '<span'+(off?' class="off"':'')+'><em>'+l+'</em>'+v+'</span>'}return '<div class="ep-chips">'+c('DWDM',d.cap||'—',!d.cap)+c('Dark Fiber',d.df?'✓':'—',!d.df)+c('DWDM Back Up',d.dw?'✓':'—',!d.dw)+'</div>'}
+function panelInit(){
+ var t=L[lang],q=t.eq,m=t.mp;lastKey='';
+ $('#mp').innerHTML='<div class="mp-body"><button type="button" class="mp-back" data-back="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>'+m.back+'</button>'+
+ '<div class="mp-a" id="mpA"></div>'+
+ '<div><div class="mp-st">'+m.svt+'</div><div class="mp-ss">'+m.svs+'</div></div>'+
+ '<div class="svl" id="svl">'+t.sv.i.map(function(s,i){return '<label data-i="'+i+'"><input type="radio" name="msvc" value="'+i+'">'+s[0]+'</label>'}).join('')+'</div>'+
+ '<div class="eps" id="eps"><div class="rail">'+PIN+'<span class="ln"></span><span class="rg"></span></div><div class="epc" id="mpE1"></div><div class="epc" id="mpE2"></div></div>'+
+ '<div><div class="bw-top"><label for="eq-bw">'+q.bw+'</label><output id="eq-bwv" for="eq-bw">'+BW[bw]+'</output></div><input type="range" id="eq-bw" min="0" max="2" step="1" value="'+bw+'"><div class="bw-l"><span>10G</span><span>100G</span><span>400G+</span></div></div>'+
+ '<div class="mp-net"><span><em>RTD</em>5–7 ms</span><span><em>SLA</em>99.89%</span><span><em>'+q.net+'</em>500 Gbps</span></div></div>'+
+ '<div class="mp-foot"><p class="eq-hint" id="eqHint"></p><button type="button" class="btn btn-primary" data-enq="1" disabled>'+q.go+'</button></div>';
+}
+function updatePanel(){
+ var t=L[lang],q=t.eq,m=t.mp,n=t.nw,mp=$('#mp'),st=$('.map-stage');
+ mp.classList.toggle('open',!!epA);st.classList.toggle('mpanel-open',!!epA);
+ $$('#svl label').forEach(function(l){var on=l.dataset.i===eqSvc;l.classList.toggle('on',on);l.querySelector('input').checked=on});
+ var key=(epA||'')+'|'+(epB||'');
+ if(key!==lastKey){
+  var prevA=lastKey.split('|')[0];lastKey=key;
+  if(epA){
+   var A=$('#mpA');A.innerHTML='<h3>'+n.p[epA][0]+'</h3><div class="t">'+n.p[epA][1]+'</div>'+chips(epA);if(prevA!==epA)fx(A,'fx-in');
+   $('#mpE1').innerHTML='<div class="k">'+q.a+'</div><div class="box"><b>'+n.p[epA][0]+'</b><div class="t">'+n.p[epA][1]+'</div></div>';
+   var E2=$('#mpE2');
+   if(epB){E2.innerHTML='<div class="row-h"><div class="k">'+q.b+'</div><button type="button" class="xb" data-clrb="1">'+q.clear+'</button></div><div class="box"><b>'+n.p[epB][0]+'</b><div class="t">'+n.p[epB][1]+'</div>'+chips(epB)+'</div>'}
+   else{E2.innerHTML='<div class="k">'+q.b+'</div><div class="box empty">'+m.pick2+'<select id="mp-b" aria-label="'+q.b+'"><option value="">'+t.c.f.pick+'</option>'+ORDER.filter(function(id){return id!==epA}).map(function(id){return '<option value="'+id+'">'+n.p[id][0]+'</option>'}).join('')+'</select></div>'}
+   fx(E2,'fx-in');
+  }
+  $('#eps').classList.toggle('both',!!(epA&&epB));
+ }
+ var h=$('#eqHint'),txt=!epB?q.h2:q.h3;if(h.textContent!==txt){h.textContent=txt;fx(h,'fx-in')}
+ $('[data-enq]').disabled=!(epA&&epB);
+}
+function searchRes(){
+ var box=$('#sres'),qv=query,n=L[lang].nw;$('.sclr').classList.toggle('show',!!qv);
+ if(!qv){box.classList.remove('open');box.innerHTML='';return}
+ var hits=ORDER.filter(function(id){return (n.p[id][0]+' '+n.p[id][1]).toLowerCase().indexOf(qv)>-1});
+ box.innerHTML=hits.length?hits.map(function(id,i){return '<button type="button" role="option" data-res="'+id+'"'+(i===0?' class="hl"':'')+'><b>'+n.p[id][0]+'</b><span>'+n.p[id][1]+(DATA[id]&&DATA[id].cap?' · DWDM '+DATA[id].cap:'')+'</span></button>'}).join(''):'<p>'+L[lang].x.nores+'</p>';
+ box.classList.add('open');
+}
+function closeSearch(){query='';var i=$('#map-q');if(i)i.value='';searchRes()}
+function setFilt(open){var f=$('#mfilt');if(!f)return;f.classList.toggle('open',open);$('[data-fbtn]').setAttribute('aria-expanded',String(open))}
+function setVB(v){var s=$('#mapSvg');if(!s)return;s.style.setProperty('--k',v[4].toFixed(3));s.setAttribute('viewBox',v[0].toFixed(1)+' '+v[1].toFixed(1)+' '+v[2].toFixed(1)+' '+v[3].toFixed(1))}
+function applyView(anim){
+ var z=ZL[zi],w=VB[2]/z,h=VB[3]/z,x=Math.max(VB[0],Math.min(VB[0]+VB[2]-w,cx-w/2)),y=Math.max(VB[1],Math.min(VB[1]+VB[3]-h,cy-h/2)),tv=[x,y,w,h,z];
+ if(!$('#mapSvg'))return;cancelAnimationFrame(raf);
+ if(!anim||!curVB||REDUCED){curVB=tv;setVB(tv)}
+ else{var from=curVB.slice(),t0=performance.now();raf=requestAnimationFrame(function step(now){var p=Math.min(1,(now-t0)/380),e=1-Math.pow(1-p,3);curVB=from.map(function(a,i){return a+(tv[i]-a)*e});setVB(curVB);if(p<1)raf=requestAnimationFrame(step)})}
+ $('.map-scroll').classList.toggle('zoomed',zi>0);
+ var a=$('[data-zoom="in"]'),b=$('[data-zoom="out"]');if(a)a.disabled=zi===ZL.length-1;if(b)b.disabled=zi===0;
+}
+function mapState(){
+ NODES.forEach(function(d){var g=$('.mk[data-id="'+d.id+'"]'),pick=d.id===epA||d.id===epB;g.classList.toggle('on',pick);g.classList.toggle('dimmed',!inSeg(d)&&!pick)});
+ $$('#mapSvg [data-seg]').forEach(function(c){c.classList.toggle('dimmed',seg!=='all'&&c.dataset.seg!==seg)});
+ $$('.seg button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.seg===seg))});
+ var a=epA&&nodeById(epA),b2=epB&&nodeById(epB),d='';
+ if(a&&b2){var mx=(a.x+b2.x)/2,my=(a.y+b2.y)/2,dx=b2.x-a.x,dy=b2.y-a.y;d='M'+a.x+','+a.y+' Q'+(mx+dy*0.16)+','+(my-dx*0.16)+' '+b2.x+','+b2.y}
+ var lp=$('#linkP'),lg=$('#linkG');
+ if(lp.getAttribute('d')!==d){lp.setAttribute('d',d);lg.setAttribute('d',d);if(d){fx(lg,'draw');fx(lp,'draw')}}
+ [['A',a],['B',b2]].forEach(function(v){var g=$('#tag'+v[0]),tr=v[1]?'translate('+(v[1].x-15)+','+(v[1].y-17)+')':'';
+  if(v[1]){var moved=g.style.display==='none'||g.getAttribute('transform')!==tr;g.style.display='';g.setAttribute('transform',tr);if(moved)fx(g.querySelector('.tg'),'tag-in')}else g.style.display='none'});
+ updatePanel();
+}
+function pickEp(id){
+ if(!epA){epA=id}else if(id!==epA){epB=id}
+ if(zi>0){var d=nodeById(id);cx=d.x;cy=d.y;applyView(true)}
+ mapState();
+}
+
+/* ---------- sections ---------- */
+function page(t){
+ var h=t.h,x=t.x,n=t.nw,a=t.ab,c=t.c,f=c.f,d=t.ind,s=t.sv;
+ return '<section class="hero">'+glow([[520,'right:-80px;top:-120px','rgba(0,212,255,.42)'],[460,'left:-160px;top:220px',BL],[380,'right:22%;bottom:-180px','rgba(0,212,255,.22)']])+
+ '<div class="wrap hero-grid"><div><p class="crumb rise">'+h.crumb+'</p><h1 class="rise d1">'+h.t+'</h1><p class="lead rise d2">'+h.l+'</p><div class="cta-row rise d3"><a class="btn btn-primary" href="#contact">'+t.cta+'</a><a class="btn btn-ghost" href="#network">'+h.b2+'</a></div></div>'+
+ '<div class="hero-art"><svg class="strands" viewBox="0 0 640 430" aria-hidden="true"><polygon points="96,0 640,0 640,112 62,112" fill="#0B2A6F"/><polygon points="210,136 640,136 640,248 176,248" fill="#8A94A6"/><polygon points="330,272 640,272 640,384 296,384" fill="#00D4FF"/></svg>'+
+ '<div class="glass float f1 rise d2"><div class="k">'+h.f1k+'</div><div class="v">'+h.f1v+'</div></div>'+
+ '<div class="glass float f2 rise d3"><div class="k">'+h.f2k+'</div><div class="route" aria-hidden="true"><i class="c"></i><u></u><i class="c"></i><u></u><i class="c"></i><u></u><i class="c"></i></div><div class="route-l">'+h.gates.map(function(g){return '<span>'+g+'</span>'}).join('')+'</div></div></div></div></section>'+
+
+ /* network */
+ '<section class="sec" id="network"><div class="wrap"><div class="eyebrow">'+n.e+'</div><h2 class="h2">'+x.map+'</h2><p class="lead clamp">'+n.l+'</p>'+
+ '<div class="glass map-card"><div class="map-stage">'+
+ '<div class="mt"><div class="mfilt" id="mfilt"><button type="button" class="mbox fbtn" data-fbtn="1" aria-expanded="false" aria-controls="fmenu"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A6F" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg><span class="lbl">'+t.mp.filt+'</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="#071A45" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>'+
+ '<div class="mbox fmenu" id="fmenu"><div class="ft">'+t.mp.fshow+'</div>'+['all','land','sea'].map(function(k,i){return '<label><input type="radio" name="mseg" value="'+k+'"'+(seg===k?' checked':'')+'>'+n.seg[i]+'</label>'}).join('')+
+ '<hr><label><input type="checkbox" id="mbk"'+(showBk?' checked':'')+'>'+t.mp.bk+'</label><hr><div class="ft">'+t.mp.lgt+'</div>'+
+ '<div class="lgm"><span><i></i>'+n.lg[0]+'</span><span><i class="s"></i>'+n.lg[1]+'</span><span><i class="b"></i>'+x.lg2[1]+'</span><span><i class="g"></i>'+n.lg[2]+'</span><span><i class="c"></i>'+x.lg2[0]+'</span></div></div></div>'+
+ '<div class="msearch"><label class="mbox sbox"><svg viewBox="0 0 24 24" fill="none" stroke="#071A45" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg><input id="map-q" type="search" placeholder="'+x.s+'" aria-label="'+x.s+'" autocomplete="off" aria-controls="sres"><button type="button" class="sclr" data-sclr="1" aria-label="'+t.mp.clr+'">×</button></label><div class="mbox sres" id="sres" role="listbox"></div></div></div>'+
+ '<div class="svgwrap"><div class="map-scroll">'+mapSvg(t)+'</div>'+
+ '<div class="zoom"><button type="button" data-zoom="in" aria-label="'+x.zi+'">+</button><button type="button" data-zoom="out" aria-label="'+x.zo+'">−</button><button type="button" data-zoom="reset" aria-label="'+x.zr+'">⤢</button></div>'+
+ '<p class="mbox mphint">'+t.mp.hint0+'</p></div>'+
+ '<div class="mbox mpanel" id="mp" aria-live="polite"></div></div></div>'+
+ schemes(t)+
+ '<div class="two"><div class="glass panel"><h3>'+n.st+'</h3><table class="spec">'+n.sp.map(function(r,i){return '<tr'+([0,2,5,6].indexOf(i)<0?' class="xrow"':'')+'><th scope="row">'+r[0]+'</th><td>'+(r[1]||'<span class="chip">'+t.soon+'</span>')+'</td></tr>'}).join('')+'</table><button type="button" class="rmore" data-spec="1">'+t.rd.all+'</button></div>'+
+ '<div class="glass panel"><h3>'+n.dt+'</h3><div class="dl"><p>'+n.d1+'</p><span class="btn" aria-disabled="true">'+n.d1b+'</span><p>'+n.d2+'</p><a class="btn btn-primary" href="#contact" data-kmz="1">'+n.d2b+'</a></div></div></div></div></section>'+
+
+ /* about */
+ '<section class="sec" id="about" style="padding-top:20px">'+glow([[420,'left:-140px;top:40px','rgba(0,212,255,.26)']])+'<div class="wrap"><div class="eyebrow">'+a.e+'</div><h2 class="h2">'+a.t+'</h2><p class="lead clamp">'+a.l+'</p>'+
+ '<div class="about2"><div class="glass"><h3>'+a.ct+'</h3><p class="clamp" style="--ln:3">'+a.cp+'</p></div><div class="glass"><h3>'+a.qt+'</h3><ul class="ticks" style="margin-top:14px">'+a.qi.map(function(q){return '<li><span>'+q[0]+'<br><span style="font-weight:500;color:var(--muted)">'+q[1]+'</span></span></li>'}).join('')+'</ul></div></div></div></section>'+
+
+ /* facts */
+ '<section class="sec band"><div class="field" aria-hidden="true"><div class="glow" style="width:520px;height:520px;right:-120px;top:-200px;background:rgba(0,212,255,.34)"></div><div class="glow" style="width:420px;height:420px;left:8%;bottom:-260px;background:rgba(11,42,111,.9)"></div><svg style="position:absolute;right:0;top:0;width:280px" viewBox="0 0 340 130"><polygon points="24,0 340,0 340,34 12,34" fill="#fff"/><polygon points="118,48 340,48 340,82 106,82" fill="#8A94A6"/><polygon points="212,96 340,96 340,130 200,130" fill="#00D4FF"/></svg></div>'+
+ '<div class="wrap"><div class="eyebrow">'+t.facts.e+'</div><h2 class="h2">'+t.facts.t+'</h2>'+
+ '<div class="stats hl"><div class="stat big"><span class="lbl">SLA</span><div class="n">99.89<small>%</small></div><div class="bar"></div><p>'+x.hl[0]+'</p></div><div class="stat big"><span class="lbl">RTD</span><div class="n">5–7<small>ms</small></div><div class="bar"></div><p>'+x.hl[1]+'</p></div></div>'+
+ '<div class="stats">'+t.facts.i.map(function(v){return '<div class="stat"><div class="n">'+v[0]+'</div><div class="bar"></div><p>'+v[1]+'</p></div>'}).join('')+'</div></div></section>'+
+
+ /* services */
+ '<section class="sec" id="services">'+glow([[480,'right:-160px;top:120px','rgba(0,212,255,.3)'],[360,'left:20%;bottom:-120px',BL]])+'<div class="wrap"><div class="head-row"><div><div class="eyebrow">'+s.e+'</div><h2 class="h2">'+s.t+'</h2></div><span class="chip">'+t.draft+'</span></div>'+
+ '<div class="cards">'+s.i.map(function(v,i){return '<article class="glass card sv" tabindex="0" role="button" aria-expanded="false" data-sv="'+i+'">'+ICONS[i]+'<h3>'+v[0]+'</h3><p>'+v[2]+'</p><div class="sv-more"><div><ul class="ticks">'+v[3].map(function(k){return '<li>'+k+'</li>'}).join('')+'</ul><a class="more" href="#contact" data-rfq="'+i+'">'+s.quote+'</a></div></div><div class="sv-tog">'+s.more+'<i aria-hidden="true"></i></div></article>'}).join('')+'</div></div></section>'+
+
+ /* industries */
+ '<section class="sec" id="industries" style="padding-top:20px"><div class="wrap"><div class="eyebrow">'+d.e+'</div><h2 class="h2">'+d.t+'</h2><p class="lead clamp">'+d.l+'</p><div class="ind" style="margin-top:36px">'+
+ d.i.map(function(v){return '<article class="glass ind-item" tabindex="0" role="button" aria-expanded="false" data-ind="1"><h3>'+v[0]+'</h3><dl><div><dt>'+d.n+'</dt><dd>'+v[1]+'</dd></div><div class="ind-sol"><div><dt>'+d.s+'</dt><dd>'+v[2]+'</dd></div></div></dl><div class="sv-tog">'+t.rd.sol+'<i aria-hidden="true"></i></div></article>'}).join('')+'</div></div></section>'+
+
+ /* projects */
+ '<section class="sec" id="projects" style="padding-top:20px"><div class="wrap"><div class="eyebrow">'+x.pe+'</div><h2 class="h2">'+x.pt+'</h2><div class="rows">'+
+ '<div class="row"><div class="row-art"><svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="560" height="320" fill="#E9EDF5"/><polygon points="0,40 430,40 398,112 0,112" fill="#0B2A6F"/><polygon points="0,128 320,128 288,200 0,200" fill="#8A94A6"/><polygon points="0,216 210,216 178,288 0,288" fill="#00D4FF"/></svg><div class="glass tag">'+a.tl[1][0]+' · '+x.g1+'</div></div>'+
+ '<div><div class="eyebrow">'+x.k1+'</div><h3>'+a.tl[1][1]+'</h3><p class="clamp" style="--ln:3">'+a.tl[1][2]+'</p></div></div>'+
+ '<div class="row flip"><div class="row-art"><svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="560" height="320" fill="#071A45"/><g fill="none" stroke-width="2"><circle cx="390" cy="160" r="210" stroke="#8A94A6" opacity=".35"/><circle cx="390" cy="160" r="150" stroke="#8A94A6" opacity=".6"/><circle cx="390" cy="160" r="96" stroke="#fff"/></g><circle cx="390" cy="160" r="46" fill="#00D4FF"/><path d="M0,160 H344" stroke="#00D4FF" stroke-width="5"/></svg><div class="glass tag">'+x.g2+'</div></div>'+
+ '<div><div class="eyebrow">'+x.k2+'</div><h3>'+a.tl[2][1]+'</h3><p class="clamp" style="--ln:3">'+a.tl[2][2]+'</p></div></div></div></div></section>'+
+
+ /* group */
+ '<section class="sec" id="group">'+glow([[520,'left:30%;top:60px','rgba(0,212,255,.24)']])+'<div class="wrap"><div class="eyebrow">'+a.ge+'</div><h2 class="h2">'+a.gt+'</h2><p class="lead clamp">'+a.tl[3][2]+'</p><div class="three"><div class="glass co me"><div class="k">'+a.gk[0]+'</div><h3>'+a.gn[0]+'</h3><p>'+a.gp+'</p></div>'+
+ '<div class="glass co"><div class="k">'+a.gk[1]+'</div><h3>'+a.gn[1]+'</h3><a href="http://www.systemnet.ge/" target="_blank" rel="noopener">systemnet.ge</a></div><div class="glass co"><div class="k">'+a.gk[1]+'</div><h3>'+a.gn[2]+'</h3><a href="https://ak.ge/" target="_blank" rel="noopener">ak.ge</a></div></div></div></section>'+
+
+ /* contact */
+ '<section class="sec" id="contact" style="padding-top:20px">'+glow([[460,'right:-120px;bottom:-60px',CY]])+'<div class="wrap"><div class="eyebrow">'+c.e+'</div><h2 class="h2">'+c.t+'</h2><p class="lead clamp">'+c.l+'</p>'+
+ '<div class="info3">'+c.info.map(function(v){return '<div class="glass"><h3>'+v[0]+'</h3><p>'+v[1]+'</p><p><span class="chip">'+t.soon+'</span></p></div>'}).join('')+'</div>'+
+ '<form class="glass form form-wide" id="form" novalidate><h3>'+c.ft+'</h3>'+
+ '<div class="fld"><label for="f-name">'+f.name+'</label><input id="f-name" autocomplete="name"></div>'+
+ '<div class="fld"><label for="f-co">'+f.co+'</label><input id="f-co" autocomplete="organization"></div>'+
+ '<div class="fld"><label for="f-mail">'+f.mail+'</label><input id="f-mail" type="email" inputmode="email" autocomplete="email"></div>'+
+ '<div class="fld"><label for="f-tel">'+f.tel+'</label><input id="f-tel" type="tel" inputmode="tel" autocomplete="tel"></div>'+
+ '<div class="fld"><label for="f-svc">'+f.svc+'</label><select id="f-svc"><option value="">'+f.pick+'</option>'+s.i.map(function(v,i){return '<option value="'+i+'">'+v[0]+'</option>'}).join('')+'</select></div>'+
+ '<div class="fld"><label for="f-cap">'+f.cap+'</label><select id="f-cap"><option value="">'+f.pick+'</option><option>10G</option><option>100G</option><option>400G+</option><option value="other">'+f.other+'</option></select></div>'+
+ '<div class="fld"><label for="f-a">'+f.a+'</label><input id="f-a"></div><div class="fld"><label for="f-b">'+f.b+'</label><input id="f-b"></div>'+
+ '<fieldset class="fld full"><legend>'+f.type+'</legend><div class="checks"><label><input type="checkbox" id="f-t1" checked>'+f.t1+'</label><label><input type="checkbox" id="f-t2">'+f.t2+'</label><label><input type="checkbox" id="f-t3">'+f.t3+'</label></div></fieldset>'+
+ '<div class="fld full"><label for="f-msg">'+f.msg+'</label><textarea id="f-msg"></textarea></div>'+
+ '<div class="send"><button class="btn btn-primary" type="submit">'+f.send+'</button><span class="msg" id="formMsg" role="status"></span></div></form></div></section>';
+}
+
+/* ---------- render ---------- */
+var FIELDS=['f-name','f-co','f-mail','f-tel','f-svc','f-cap','f-a','f-b','f-t1','f-t2','f-t3','f-msg'],formState={},first=true;
+function saveForm(){FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)formState[id]=el.type==='checkbox'?el.checked:el.value})}
+function restoreForm(){FIELDS.forEach(function(id){var el=document.getElementById(id);if(el&&id in formState){if(el.type==='checkbox')el.checked=formState[id];else el.value=formState[id]}});var m=$('#formMsg');if(m&&msgKey)m.textContent=L[lang].c[msgKey]}
+function render(){
+ var t=L[lang],x=t.x;saveForm();
+ document.documentElement.lang=lang;
+ $('#app').innerHTML=page(t);
+ if(!first)$$('.rise').forEach(function(e){e.classList.remove('rise')});first=false;
+ $('#tabs').innerHTML='<span class="tab-ind" id="tabInd"></span>'+IDS.map(function(id,i){return '<a class="tab" href="#'+id+'">'+x.nv[i]+'</a>'}).join('');
+ $('#navCta').textContent=x.ct;
+ var langHtml='<div class="lang" role="group" aria-label="'+t.ft.b+'">'+['ka','en','ru'].map(function(l){return '<button type="button" data-lang="'+l+'">'+l.toUpperCase()+'</button>'}).join('')+'</div>';
+ var links=IDS.map(function(id,i){return [id,x.nv[i]]}).concat([['contact',x.ct]]);
+ $('#sheet').innerHTML=links.map(function(l){return '<a href="#'+l[0]+'">'+l[1]+'</a>'}).join('')+langHtml;
+ $('#footer').innerHTML='<div class="wrap foot"><div><svg class="logo" style="height:40px" viewBox="24 21 376 108" role="img" aria-label="FOPTNET"><g transform="translate(24,21)"><rect width="108" height="108" rx="6" fill="#E9EDF5"/><g transform="translate(14,14) scale(0.66)"><polygon points="14,22 26,10 38,10 38,110 14,110" fill="#0B2A6F"/><polygon points="44,10 106,10 94,28 44,28" fill="#0B2A6F"/><polygon points="44,40 88,40 78,56 44,56" fill="#8A94A6"/><polygon points="44,68 70,68 60,84 44,84" fill="#00D4FF"/></g></g><path d="'+$('.wm path').getAttribute('d')+'" fill="#0B2A6F"/></svg><p>'+t.ft.p+'</p></div><div><h4>'+t.ft.a+'</h4><ul>'+links.map(function(l){return '<li><a href="#'+l[0]+'">'+l[1]+'</a></li>'}).join('')+'</ul></div><div><h4>'+t.ft.b+'</h4>'+langHtml+'</div></div><div class="wrap legal"><span>'+t.ft.c+'</span>'+(CFG.demo===false?'':'<span>'+t.ft.d+'</span>')+'</div>';
+ $$('[data-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===lang))});
+ $$('.about2 .glass,.stat,.ind-item,.co,.info3 .glass,.two .panel,.row-art,.form-wide').forEach(function(el){el.classList.add('fxb')});
+ clampInit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(clampInit);
+ restoreForm();curVB=null;applyView();panelInit();$('#mapSvg').classList.toggle('nobk',!showBk);mapState();watchMap();schPlay();active=null;spy();if(query){$('#map-q').value=query;searchRes()}
+}
+
+function watchMap(){
+ if(!('IntersectionObserver' in window))return;if(io)io.disconnect();
+ io=new IntersectionObserver(function(es){es.forEach(function(e){var s=$('#mapSvg');if(!s)return;s.classList.toggle('paused',!e.isIntersecting);try{if(e.isIntersecting)s.unpauseAnimations();else s.pauseAnimations()}catch(x){}})},{rootMargin:'120px'});
+ var st=$('.map-stage');if(st)io.observe(st);
+}
+
+/* ---------- nav ---------- */
+function place(el){var ind=$('#tabInd');if(!ind)return;if(!el){ind.style.opacity=0;return}ind.style.opacity=1;ind.style.width=el.offsetWidth+'px';ind.style.transform='translateX('+el.offsetLeft+'px)'}
+function spy(){
+ $('#nav').classList.toggle('scrolled',window.scrollY>24);
+ var y=window.innerHeight*0.38,cur=null,tabs=$$('.tab');
+ IDS.forEach(function(id,i){var s=document.getElementById(id);if(s&&s.getBoundingClientRect().top<=y)cur=tabs[i]});
+ var ct=$('#contact');if(ct&&ct.getBoundingClientRect().top<=y)cur=null;
+ if(cur!==active||!cur){active=cur;tabs.forEach(function(t){if(t===cur)t.setAttribute('aria-current','true');else t.removeAttribute('aria-current')});if(!$('#tabs').matches(':hover'))place(active)}
+}
+function toggleSv(el){var on=!el.classList.contains('active');$$('.card.sv.active').forEach(function(c){c.classList.remove('active');c.setAttribute('aria-expanded','false')});if(on){el.classList.add('active');el.setAttribute('aria-expanded','true')}}
+function clampInit(){var r=L[lang].rd;$$('.clamp').forEach(function(el){el.classList.remove('open');var nx=el.nextElementSibling;if(nx&&nx.classList.contains('rmore')&&nx.dataset.cl)nx.remove();if(el.scrollHeight>el.clientHeight+2){var b=document.createElement('button');b.type='button';b.className='rmore';b.dataset.cl='1';b.textContent=r.m;b.setAttribute('aria-expanded','false');el.insertAdjacentElement('afterend',b)}})}
+function toggleInd(el){var on=!el.classList.contains('active');el.classList.toggle('active',on);el.setAttribute('aria-expanded',String(on))}
+function closeSheet(){$('#sheet').hidden=true;$('#menuBtn').setAttribute('aria-expanded','false')}
+function go(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})}
+
+/* ---------- modal ---------- */
+function openModal(){
+ var t=L[lang],q=t.eq,n=t.nw,m=$('#modal');
+ m.innerHTML='<div class="modal-box" role="dialog" aria-modal="true" aria-label="'+q.mt+'"><button type="button" class="modal-x" data-close="1" aria-label="'+q.close+'">×</button>'+
+ '<form class="modal-form" id="mform" novalidate><h2>'+q.mt+'</h2>'+
+ '<div class="m-two"><div class="fld"><label for="m-svc">'+q.prod+'</label><select id="m-svc"><option value="">'+t.c.f.pick+'</option>'+t.sv.i.map(function(s,i){return '<option value="'+i+'"'+(String(i)===eqSvc?' selected':'')+'>'+s[0]+'</option>'}).join('')+'</select></div>'+
+ '<div class="fld"><label for="m-bw">'+q.bw+'</label><select id="m-bw">'+BW.map(function(v,i){return '<option value="'+i+'"'+(i===bw?' selected':'')+'>'+v+'</option>'}).join('')+'</select></div></div>'+
+ '<div class="fld"><label for="m-fn">'+q.fn+' *</label><input id="m-fn" autocomplete="given-name"></div>'+
+ '<div class="fld"><label for="m-ln">'+q.ln+' *</label><input id="m-ln" autocomplete="family-name"></div>'+
+ '<div class="fld"><label for="m-mail">'+q.mail+' *</label><input id="m-mail" type="email" inputmode="email" autocomplete="email"></div>'+
+ '<div class="fld"><label for="m-co">'+q.co+' *</label><input id="m-co" autocomplete="organization"></div>'+
+ '<label class="agree"><input type="checkbox" id="m-ok">'+q.ok+'</label><p class="reqnote">'+q.req+'</p>'+
+ '<div class="send"><button class="btn btn-primary" type="submit">'+q.send+'</button><span class="msg" id="mMsg" role="status"></span></div></form>'+
+ '<div class="modal-sum"><h3>'+q.sum+'</h3><div class="sum-row"><div class="k">A · '+n.p[epA][1]+'</div><b>'+n.p[epA][0]+'</b></div><div class="sum-row"><div class="k">B · '+n.p[epB][1]+'</div><b>'+n.p[epB][0]+'</b></div>'+
+ '<div class="sum-row split"><div><div class="k">'+q.prod+'</div><b id="sumSvc">'+(eqSvc===''?'—':t.sv.i[+eqSvc][0])+'</b></div><b id="sumBw">'+BW[bw]+'</b></div>'+
+ '<div class="ep-chips"><span><em>RTD</em>5–7 ms</span><span><em>SLA</em>99.89%</span></div></div></div>';
+ m.hidden=false;var f=$('#m-fn');if(f)f.focus();
+}
+function closeModal(){var m=$('#modal');if(m.hidden||m.classList.contains('closing'))return;if(REDUCED){m.hidden=true;m.innerHTML='';return}m.classList.add('closing');setTimeout(function(){m.classList.remove('closing');m.hidden=true;m.innerHTML=''},200)}
+
+/* ---------- events ---------- */
+var dragged=false;
+document.addEventListener('click',function(e){
+ if(e.target.id==='modal'){closeModal();return}
+ var el=e.target.closest('[data-lang],[data-pop],[data-seg],.mk,[data-zoom],[data-clear],[data-enq],[data-close],#menuBtn,a[href^="#"],[data-sv]');if(!el)return;
+ if(el.dataset.sv!==undefined&&!e.target.closest('a')){toggleSv(el);return}
+ if(el.id==='menuBtn'){var s=$('#sheet'),open=s.hidden;s.hidden=!open;el.setAttribute('aria-expanded',String(open));return}
+ if(el.dataset.close){closeModal();return}
+ if(el.dataset.lang){lang=el.dataset.lang;try{localStorage.setItem('foptnet-lang',lang)}catch(x){}render();return}
+ if(el.dataset.pop){pickEp(el.dataset.pop);return}
+ if(el.classList.contains('mk')){if(dragged){dragged=false;return}pickEp(el.dataset.id);return}
+ if(el.dataset.seg){seg=el.dataset.seg;mapState();return}
+ if(el.dataset.zoom){if(el.dataset.zoom==='in')zi=Math.min(ZL.length-1,zi+1);else if(el.dataset.zoom==='out')zi=Math.max(0,zi-1);else{zi=0;cx=VB[0]+VB[2]/2;cy=VB[1]+VB[3]/2}
+  if(el.dataset.zoom==='in'&&zi===1){var d=nodeById(epB||epA||'tbs');cx=d.x;cy=d.y}applyView(true);return}
+ if(el.dataset.clear){epA=epB=null;mapState();return}
+ if(el.dataset.enq){if(epA&&epB)openModal();return}
+ var href=el.getAttribute('href');
+ if(href&&href.charAt(0)==='#'){e.preventDefault();closeSheet();
+  if(el.dataset.rfq){var sv=$('#f-svc');if(sv)sv.value=el.dataset.rfq}
+  if(el.dataset.kmz){var k=$('#f-t3');if(k)k.checked=true}
+  go(href.slice(1)||'top')}
+});
+document.addEventListener('click',function(e){
+ var t=e.target;
+ if(!(t.closest&&t.closest('#mfilt')))setFilt(false);
+ if(!(t.closest&&t.closest('.msearch'))){var b=$('#sres');if(b)b.classList.remove('open')}
+ if(t.closest('[data-fbtn]')){setFilt(!$('#mfilt').classList.contains('open'));return}
+ if(t.closest('[data-sclr]')){e.preventDefault();closeSearch();$('#map-q').focus();return}
+ var r=t.closest('[data-res]');if(r){pickEp(r.dataset.res);closeSearch();return}
+ if(t.closest('[data-back]')){epA=epB=null;mapState();return}
+ if(t.closest('[data-clrb]')){epB=null;mapState();return}
+});
+document.addEventListener('change',function(e){
+ var t=e.target;
+ if(t.name==='mseg'){seg=t.value;mapState()}
+ if(t.id==='mbk'){showBk=t.checked;$('#mapSvg').classList.toggle('nobk',!showBk)}
+ if(t.name==='msvc'){eqSvc=t.value;updatePanel()}
+ if(t.id==='mp-b'&&t.value){pickEp(t.value)}
+});
+document.addEventListener('click',function(e){var tg=e.target.closest&&e.target.closest('[data-schtog]');if(tg){schOpen=!schOpen;var box=$('#sch'),c=L[lang].sch,btn=box.querySelector('.sch-tg');box.classList.toggle('open',schOpen);btn.setAttribute('aria-expanded',String(schOpen));btn.firstChild.nodeValue=schOpen?c.cl:c.op;schPlay();return}var b=e.target.closest&&e.target.closest('[data-sch]');if(!b)return;schTab=+b.dataset.sch;$$('[data-sch]').forEach(function(x,i){x.setAttribute('aria-selected',String(i===schTab))});$$('.sch-pane').forEach(function(p,i){p.hidden=i!==schTab});schPlay()});
+document.addEventListener('click',function(e){
+ var t=e.target,r=L[lang].rd;
+ var b=t.closest&&t.closest('.rmore[data-cl]');if(b){var el=b.previousElementSibling,on=!el.classList.contains('open');el.classList.toggle('open',on);b.classList.toggle('open',on);b.textContent=on?r.l:r.m;b.setAttribute('aria-expanded',String(on));return}
+ var sp=t.closest&&t.closest('[data-spec]');if(sp){var tb=sp.previousElementSibling,on2=!tb.classList.contains('all');tb.classList.toggle('all',on2);sp.classList.toggle('open',on2);sp.textContent=on2?r.few:r.all;return}
+ var ind=t.closest&&t.closest('[data-ind]');if(ind){toggleInd(ind)}
+});
+document.addEventListener('keydown',function(e){var el=e.target;if(el.dataset&&el.dataset.ind&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleInd(el)}});
+var clT=0;window.addEventListener('resize',function(){clearTimeout(clT);clT=setTimeout(clampInit,250)});
+document.addEventListener('focusin',function(e){if(e.target.id==='map-q'&&query)searchRes()});
+window.addEventListener('resize',function(){var nv=baseVB();if(nv[0]!==VB[0]){VB=nv;zi=0;cx=VB[0]+VB[2]/2;cy=VB[1]+VB[3]/2;curVB=null;applyView()}});
+document.addEventListener('keydown',function(e){
+ if(e.target.id==='map-q'&&e.key==='Enter'){e.preventDefault();var f=$('#sres [data-res]');if(f){pickEp(f.dataset.res);closeSearch()}}
+ if(e.key==='Escape'){setFilt(false);var sb=$('#sres');if(sb)sb.classList.remove('open')}
+var n=e.target.closest&&e.target.closest('.mk');if(n&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pickEp(n.dataset.id)}var sc=e.target.classList&&e.target.classList.contains('sv');if(sc&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleSv(e.target)}if(e.key==='Escape'){closeSheet();closeModal()}});
+document.addEventListener('input',function(e){
+ if(e.target.id==='map-q'){query=e.target.value.trim().toLowerCase();searchRes()}
+ if(e.target.id==='eq-bw'){bw=+e.target.value;var o=$('#eq-bwv');if(o.textContent!==BW[bw]){o.textContent=BW[bw];fx(o,'bump')}}
+});
+document.addEventListener('change',function(e){if(e.target.id==='eq-svc')eqSvc=e.target.value;if(e.target.id==='m-svc'){eqSvc=e.target.value;var ss=$('#sumSvc');ss.textContent=eqSvc===''?'—':L[lang].sv.i[+eqSvc][0];fx(ss,'fx-in');updatePanel()}if(e.target.id==='m-bw'){bw=+e.target.value;var sb=$('#sumBw');sb.textContent=BW[bw];fx(sb,'bump')}var k=e.target.dataset&&e.target.dataset.ep;if(k){var v=e.target.value||null;if(k==='A'){epA=v;if(v&&epB===v)epB=null}else{epB=v;if(v&&epA===v)epA=null}if(v&&zi>0){var d=nodeById(v);cx=d.x;cy=d.y;applyView(true)}mapState()}});
+/* ---------- form sending ----------
+   Set window.FOPTNET_CONFIG.formEndpoint (in index.html <head>) to a URL that accepts a JSON POST.
+   Empty endpoint = demo mode (nothing is sent). */
+function optText(id){var el=document.getElementById(id);if(!el)return '';if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];return el.value===''?'':(o?o.text:'')}return el.type==='checkbox'?el.checked:el.value.trim()}
+function sendLead(payload,onDone){
+ if(!CFG.formEndpoint){onDone('demo');return}
+ payload.lang=lang;payload.page=location.href;payload.sentAt=new Date().toISOString();
+ fetch(CFG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .then(function(r){onDone(r.ok?'sent':'fail')}).catch(function(){onDone('fail')});
+}
+document.addEventListener('submit',function(e){
+ e.preventDefault();
+ var n=L[lang].nw;
+ if(e.target.id==='mform'){
+  var good=$('#m-fn').value.trim()&&$('#m-ln').value.trim()&&$('#m-co').value.trim()&&/^\S+@\S+\.\S+$/.test($('#m-mail').value.trim())&&$('#m-ok').checked;
+  if(!good){$('#mMsg').textContent=L[lang].eq.err;return}
+  var mb=e.target.querySelector('[type=submit]');mb.disabled=true;$('#mMsg').textContent=L[lang].c.sending;
+  sendLead({form:'enquiry',firstName:optText('m-fn'),lastName:optText('m-ln'),email:optText('m-mail'),company:optText('m-co'),service:optText('m-svc'),bandwidth:optText('m-bw'),pointA:epA?n.p[epA][0]:'',pointB:epB?n.p[epB][0]:'',consent:true},
+   function(r){mb.disabled=false;var mm=$('#mMsg');if(mm)mm.textContent=L[lang].c[r];if(r==='sent')['m-fn','m-ln','m-mail','m-co'].forEach(function(id){$('#'+id).value=''})});
+  return}
+ if(e.target.id!=='form')return;
+ var ok=$('#f-name').value.trim()&&$('#f-co').value.trim()&&/^\S+@\S+\.\S+$/.test($('#f-mail').value.trim());
+ if(!ok){msgKey='err';$('#formMsg').textContent=L[lang].c.err;return}
+ var fb=e.target.querySelector('[type=submit]');fb.disabled=true;msgKey='sending';$('#formMsg').textContent=L[lang].c.sending;
+ var types=['f-t1','f-t2','f-t3'].filter(function(id){return $('#'+id).checked}).map(function(id){return $('#'+id).parentNode.textContent.trim()});
+ sendLead({form:'contact',name:optText('f-name'),company:optText('f-co'),email:optText('f-mail'),phone:optText('f-tel'),service:optText('f-svc'),capacity:optText('f-cap'),pointA:optText('f-a'),pointB:optText('f-b'),requestType:types,message:optText('f-msg')},
+  function(r){fb.disabled=false;msgKey=r;var fm=$('#formMsg');if(fm)fm.textContent=L[lang].c[r];if(r==='sent'){e.target.reset();if(typeof formState==='object')for(var k in formState)delete formState[k]}});
+});
+/* optional Google Analytics 4 */
+if(CFG.ga){var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(CFG.ga);document.head.appendChild(gs);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',CFG.ga)}
+/* drag to pan when zoomed */
+var drag=null;
+document.addEventListener('pointerdown',function(e){var s=e.target.closest&&e.target.closest('#mapSvg');if(!s||zi===0)return;drag={x:e.clientX,y:e.clientY,cx:cx,cy:cy,k:(VB[2]/ZL[zi])/s.getBoundingClientRect().width};dragged=false});
+document.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>5)dragged=true;if(dragged){var w=VB[2]/ZL[zi],h=VB[3]/ZL[zi];cx=Math.max(VB[0]+w/2,Math.min(VB[0]+VB[2]-w/2,drag.cx-dx*drag.k));cy=Math.max(VB[1]+h/2,Math.min(VB[1]+VB[3]-h/2,drag.cy-dy*drag.k));applyView()}});
+document.addEventListener('pointerup',function(){drag=null;setTimeout(function(){dragged=false},0)});
+document.addEventListener('mouseover',function(e){var t=e.target.closest&&e.target.closest('.tab');if(t)place(t)});
+$('#tabs').addEventListener('mouseleave',function(){place(active)});
+window.addEventListener('scroll',spy,{passive:true});
+window.addEventListener('resize',function(){place(active)});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){place(active)});
+render();
+var h0=(location.hash||'').slice(1);if(h0&&document.getElementById(h0))setTimeout(function(){go(h0)},60);
+})();
+</script>
+
+</body>
+</html>

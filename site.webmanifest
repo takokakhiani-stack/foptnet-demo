@@ -1,0 +1,11 @@
+{
+  "name": "FOPTNET",
+  "short_name": "FOPTNET",
+  "icons": [
+    {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ],
+  "theme_color": "#0B2A6F",
+  "background_color": "#F4F6FA",
+  "display": "browser"
+}
